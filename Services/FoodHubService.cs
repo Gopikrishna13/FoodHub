@@ -65,45 +65,55 @@ namespace FoodHub.Services
 
         public bool AddDependant(Dependent dependent)
         {
-            using (var context = new FoodHubContext())
+            try
             {
-                context.Dependents.Add(dependent);
-                int result = context.SaveChanges();
-                return result > 0;
+                using (var context = new FoodHubContext())
+                {
+                    Console.WriteLine($"Adding dependent {dependent.Name} for rider ID {dependent.RiderID}");
+                    context.Dependents.Add(dependent);
+                    int result = context.SaveChanges();
+                    Console.WriteLine($"Dependent save result: {result}");
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding dependent: {ex.Message}");
+                return false;
             }
         }
-        public bool AddRider(Rider rider)
+        public Rider AddRider(Rider rider)
         {
             if (rider == null)
             {
-
-                return false;
+                return null;
             }
 
-
-
-            using (var context = new FoodHubContext())
+            try
             {
-
-
-
-                var existingRider = context.Riders.FirstOrDefault(c => c.NIC == rider.NIC && c.UserName == rider.UserName);
-
-                if (existingRider != null)
+                using (var context = new FoodHubContext())
                 {
+                    var existingRider = context.Riders.FirstOrDefault(c => c.NIC == rider.NIC && c.UserName == rider.UserName);
 
-                    return false;
+                    if (existingRider != null)
+                    {
+                        return null;
+                    }
+
+                    context.Riders.Add(rider);
+                    int result = context.SaveChanges();
+                    
+                    if (result > 0)
+                    {
+                        return rider;
+                    }
+                    return null;
                 }
-
-
-         
-                context.Riders.Add(rider);
-
-
-                int result = context.SaveChanges();
-
-
-                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding rider: {ex.Message}");
+                return null;
             }
         }
         public bool AddBike(MotorBike motorBike)
@@ -384,16 +394,16 @@ namespace FoodHub.Services
         }
 
         /// <summary>
-        /// Example: Authenticate customer login
+        /// Authenticate customer login using username
         /// </summary>
-        public Customer AuthenticateCustomer(string nic, string password)
+        public Customer AuthenticateCustomer(string username, string password)
         {
             try
             {
                 using (var context = new FoodHubContext())
                 {
                     return context.Customers
-                        .FirstOrDefault(c => c.NIC == nic && c.Password == password);
+                        .FirstOrDefault(c => c.UserName == username && c.Password == password);
                 }
             }
             catch (Exception ex)
@@ -521,7 +531,9 @@ namespace FoodHub.Services
             {
                 using (var context = new FoodHubContext())
                 {
-                    return context.Dependents.Where(d => d.RiderID == riderId).ToList();
+                    var dependents = context.Dependents.Where(d => d.RiderID == riderId).ToList();
+                    Console.WriteLine($"Found {dependents.Count} dependents for rider ID {riderId}");
+                    return dependents;
                 }
             }
             catch (Exception ex)
@@ -548,6 +560,651 @@ namespace FoodHub.Services
             {
                 Console.WriteLine($"Error initializing database: {ex.Message}");
                 return false;
+            }
+        }
+
+        public System.Collections.Generic.List<FoodItem> GetAllFoodItems()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.FoodItems.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting all food items: {ex.Message}");
+                return new System.Collections.Generic.List<FoodItem>();
+            }
+        }
+
+        public FoodItem GetSingleFoodItem(int itemId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.FoodItems.FirstOrDefault(f => f.ItemID == itemId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting food item: {ex.Message}");
+                return null;
+            }
+        }
+
+        public FoodItem AddFoodItem(FoodItem foodItem)
+        {
+            if (foodItem == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var existingItem = context.FoodItems.FirstOrDefault(f => f.ItemName == foodItem.ItemName);
+
+                    if (existingItem != null)
+                    {
+                        return null;
+                    }
+
+                    context.FoodItems.Add(foodItem);
+                    int result = context.SaveChanges();
+                    
+                    if (result > 0)
+                    {
+                        return foodItem;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding food item: {ex.Message}");
+                return null;
+            }
+        }
+
+        public bool UpdateFoodItem(FoodItem foodItem)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var existingItem = context.FoodItems.FirstOrDefault(f => f.ItemID == foodItem.ItemID);
+                    if (existingItem != null)
+                    {
+                        existingItem.ItemName = foodItem.ItemName;
+                        existingItem.Category = foodItem.Category;
+                        existingItem.Price = foodItem.Price;
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating food item: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool DeleteFoodItem(int itemId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var foodItem = context.FoodItems.FirstOrDefault(f => f.ItemID == itemId);
+                    if (foodItem != null)
+                    {
+                        var foodItemIngredients = context.FoodItemIngredients.Where(fi => fi.ItemID == itemId).ToList();
+                        context.FoodItemIngredients.RemoveRange(foodItemIngredients);
+                        context.FoodItems.Remove(foodItem);
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting food item: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Ingredient> GetAllIngredients()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Ingredients.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting all ingredients: {ex.Message}");
+                return new System.Collections.Generic.List<Ingredient>();
+            }
+        }
+
+        public bool AddIngredient(Ingredient ingredient)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var existingIngredient = context.Ingredients.FirstOrDefault(i => i.IngredientName == ingredient.IngredientName);
+                    if (existingIngredient == null)
+                    {
+                        context.Ingredients.Add(ingredient);
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding ingredient: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool AddFoodItemIngredient(FoodItemIngredient foodItemIngredient)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var existing = context.FoodItemIngredients.FirstOrDefault(fi => fi.ItemID == foodItemIngredient.ItemID && fi.IngredientID == foodItemIngredient.IngredientID);
+                    if (existing == null)
+                    {
+                        context.FoodItemIngredients.Add(foodItemIngredient);
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding food item ingredient: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Ingredient> GetFoodItemIngredients(int itemId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var ingredients = context.FoodItemIngredients
+                        .Where(fi => fi.ItemID == itemId)
+                        .Join(context.Ingredients, fi => fi.IngredientID, i => i.IngredientID, (fi, i) => i)
+                        .ToList();
+                    return ingredients;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting food item ingredients: {ex.Message}");
+                return new System.Collections.Generic.List<Ingredient>();
+            }
+        }
+
+        public bool RemoveFoodItemIngredient(int itemId, int ingredientId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var foodItemIngredient = context.FoodItemIngredients.FirstOrDefault(fi => fi.ItemID == itemId && fi.IngredientID == ingredientId);
+                    if (foodItemIngredient != null)
+                    {
+                        context.FoodItemIngredients.Remove(foodItemIngredient);
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error removing food item ingredient: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Order> GetAllOrders()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Orders.Include("Customer").ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting all orders: {ex.Message}");
+                return new System.Collections.Generic.List<Order>();
+            }
+        }
+
+        public System.Collections.Generic.List<Order> GetCustomerOrders(int customerId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Orders.Where(o => o.CustomerID == customerId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting customer orders: {ex.Message}");
+                return new System.Collections.Generic.List<Order>();
+            }
+        }
+
+        public int GetCustomerTotalOrders(int customerId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Orders.Count(o => o.CustomerID == customerId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting customer total orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public int GetCustomerPendingOrders(int customerId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Orders.Count(o => o.CustomerID == customerId && o.OrderStatus == "Pending");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting customer pending orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public int GetCustomerDeliveredOrders(int customerId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Orders.Count(o => o.CustomerID == customerId && o.OrderStatus == "Delivered");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting customer delivered orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public Order AddOrder(Order order)
+        {
+            if (order == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    context.Orders.Add(order);
+                    int result = context.SaveChanges();
+                    
+                    if (result > 0)
+                    {
+                        return order;
+                    }
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding order: {ex.Message}");
+                return null;
+            }
+        }
+
+        public bool AddOrderItem(OrderItem orderItem)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    context.OrderItems.Add(orderItem);
+                    int result = context.SaveChanges();
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding order item: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<OrderItem> GetOrderItems(int orderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.OrderItems
+                        .Where(oi => oi.OrderID == orderId)
+                        .Include("FoodItem")
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting order items: {ex.Message}");
+                return new System.Collections.Generic.List<OrderItem>();
+            }
+        }
+
+        public bool UpdateOrderStatus(int orderId, string status)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var order = context.Orders.FirstOrDefault(o => o.OrderID == orderId);
+                    if (order != null)
+                    {
+                        order.OrderStatus = status;
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating order status: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Rider> GetAvailableRidersForAssignment()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Riders.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting available riders: {ex.Message}");
+                return new System.Collections.Generic.List<Rider>();
+            }
+        }
+
+        public System.Collections.Generic.List<MotorBike> GetAvailableBikes()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.MotorBikes.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting available bikes: {ex.Message}");
+                return new System.Collections.Generic.List<MotorBike>();
+            }
+        }
+
+        public bool AssignRiderToOrder(int orderId, int riderId, string bikeRegNo, int startMeterReading)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var delivery = new Delivery
+                    {
+                        OrderID = orderId,
+                        RiderID = riderId,
+                        BikeRegNo = bikeRegNo,
+                        DeliveryDateTime = DateTime.Now
+                    };
+
+                    context.Deliveries.Add(delivery);
+
+                    var bikeAssignment = new BikeAssignment
+                    {
+                        RiderID = riderId,
+                        BikeRegNo = bikeRegNo,
+                        AssignmentDate = DateTime.Now,
+                        StartMeterReading = startMeterReading
+                    };
+
+                    context.BikeAssignments.Add(bikeAssignment);
+
+                    var order = context.Orders.FirstOrDefault(o => o.OrderID == orderId);
+                    if (order != null)
+                    {
+                        order.OrderStatus = "Assigned";
+                    }
+
+                    int result = context.SaveChanges();
+                    return result > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error assigning rider to order: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool UpdateDeliveryEndReading(int orderId, int endMeterReading)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var delivery = context.Deliveries.FirstOrDefault(d => d.OrderID == orderId);
+                    if (delivery != null)
+                    {
+                        var bikeAssignment = context.BikeAssignments
+                            .Where(ba => ba.RiderID == delivery.RiderID && ba.BikeRegNo == delivery.BikeRegNo)
+                            .OrderByDescending(ba => ba.AssignmentDate)
+                            .FirstOrDefault();
+
+                        if (bikeAssignment != null)
+                        {
+                            bikeAssignment.EndMeterReading = endMeterReading;
+                            int result = context.SaveChanges();
+                            return result > 0;
+                        }
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating delivery end reading: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Order> GetRiderOrders(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var orderIds = context.Deliveries
+                        .Where(d => d.RiderID == riderId)
+                        .Select(d => d.OrderID)
+                        .ToList();
+
+                    return context.Orders
+                        .Where(o => orderIds.Contains(o.OrderID))
+                        .Include("Customer")
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider orders: {ex.Message}");
+                return new System.Collections.Generic.List<Order>();
+            }
+        }
+
+        public int GetRiderTotalOrders(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Deliveries.Count(d => d.RiderID == riderId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider total orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public int GetRiderPendingOrders(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var orderIds = context.Deliveries
+                        .Where(d => d.RiderID == riderId)
+                        .Select(d => d.OrderID)
+                        .ToList();
+
+                    return context.Orders
+                        .Count(o => orderIds.Contains(o.OrderID) && (o.OrderStatus == "Assigned" || o.OrderStatus == "Pending"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider pending orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public int GetRiderDeliveredOrders(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var orderIds = context.Deliveries
+                        .Where(d => d.RiderID == riderId)
+                        .Select(d => d.OrderID)
+                        .ToList();
+
+                    return context.Orders
+                        .Count(o => orderIds.Contains(o.OrderID) && o.OrderStatus == "Delivered");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider delivered orders: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public decimal GetRiderTotalDistance(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var assignments = context.BikeAssignments
+                        .Where(ba => ba.RiderID == riderId && ba.EndMeterReading.HasValue)
+                        .ToList();
+
+                    decimal totalDistance = 0;
+                    foreach (var assignment in assignments)
+                    {
+                        if (assignment.EndMeterReading.HasValue)
+                        {
+                            totalDistance += assignment.EndMeterReading.Value - assignment.StartMeterReading;
+                        }
+                    }
+
+                    return totalDistance;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider total distance: {ex.Message}");
+                return 0;
+            }
+        }
+
+        public Delivery GetDeliveryByOrderId(int orderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Deliveries
+                        .Include("Rider")
+                        .Include("MotorBike")
+                        .FirstOrDefault(d => d.OrderID == orderId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting delivery by order ID: {ex.Message}");
+                return null;
+            }
+        }
+
+        public Rider AuthenticateRider(string username, string password)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Riders
+                        .FirstOrDefault(r => r.UserName == username && r.Password == password);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error authenticating rider: {ex.Message}");
+                return null;
             }
         }
     }

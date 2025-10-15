@@ -21,3 +21,14 @@ C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderManagementForm.r
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AddRiderForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.EditBikeForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.EditRiderForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.FoodItemManagementForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AddFoodItemForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.EditFoodItemForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerDashboardForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerFoodItemForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerOrdersForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AdminOrdersForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.exe.config
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderAssignmentForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderDashboardForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderOrdersForm.resources

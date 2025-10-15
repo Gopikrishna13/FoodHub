@@ -52,6 +52,20 @@ namespace FoodHub
             RefreshDashboardStats();
         }
 
+        private void FoodItemLabel_Click(object sender, EventArgs e)
+        {
+            FoodItemManagementForm foodItemForm = new FoodItemManagementForm();
+            foodItemForm.ShowDialog();
+            RefreshDashboardStats();
+        }
+
+        private void OrdersLabel_Click(object sender, EventArgs e)
+        {
+            AdminOrdersForm ordersForm = new AdminOrdersForm();
+            ordersForm.ShowDialog();
+            RefreshDashboardStats();
+        }
+
         public void RefreshDashboardStats()
         {
             try

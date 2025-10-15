@@ -14,8 +14,11 @@ namespace FoodHub
             InitializeComponent();
             InitializeDependentsDataGridView();
             
-         
             dependentsDataGridView.CellContentClick += DependentsDataGridView_CellContentClick;
+            
+            // Generate automatic username when first name or last name changes
+            firstNameTextBox.TextChanged += GenerateUsername;
+            lastNameTextBox.TextChanged += GenerateUsername;
         }
 
         private void InitializeDependentsDataGridView()
@@ -34,7 +37,7 @@ namespace FoodHub
             dependentsDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             dependentsDataGridView.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
             
-            // Configure button column
+            
             RemoveDependent.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
             RemoveDependent.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             RemoveDependent.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(231, 76, 60);
@@ -198,15 +201,15 @@ namespace FoodHub
                     rider.UserName = usernameTextBox.Text.Trim();
                     rider.Password = HashPassword(passwordTextBox.Text);
 
-                    bool riderAdded = foodHubService.AddRider(rider);
+                    Rider addedRider = foodHubService.AddRider(rider);
 
-                    if (riderAdded)
+                    if (addedRider != null)
                     {
                         var dependents = GetDependentsData();
                         foreach (var dep in dependents)
                         {
                             Dependent dependent = new Dependent();
-                            dependent.RiderID = rider.RiderID;
+                            dependent.RiderID = addedRider.RiderID;
                             dependent.Name = dep.Name;
                             dependent.Relationship = dep.Relationship;
                             dependent.DateOfBirth = dep.DateOfBirth;
@@ -219,7 +222,7 @@ namespace FoodHub
                     }
                     else
                     {
-                        MessageBox.Show("Failed to add rider. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to add rider. Rider with same NIC or Username may already exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -276,13 +279,48 @@ namespace FoodHub
             return true;
         }
 
+        private void GenerateUsername(object sender, EventArgs e)
+        {
+            try
+            {
+                string firstName = firstNameTextBox.Text.Trim().ToLower();
+                string lastName = lastNameTextBox.Text.Trim().ToLower();
+                
+                if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+                {
+                    // Generate username: rider + first name + last name + random number
+                    Random random = new Random();
+                    int randomNumber = random.Next(100, 999);
+                    string username = $"rider{firstName}{lastName}{randomNumber}";
+                    
+                    // Remove any spaces and special characters
+                    username = System.Text.RegularExpressions.Regex.Replace(username, @"[^a-zA-Z0-9]", "");
+                    
+                    usernameTextBox.Text = username;
+                }
+                else if (!string.IsNullOrEmpty(firstName))
+                {
+                    // If only first name is available
+                    Random random = new Random();
+                    int randomNumber = random.Next(1000, 9999);
+                    string username = $"rider{firstName}{randomNumber}";
+                    username = System.Text.RegularExpressions.Regex.Replace(username, @"[^a-zA-Z0-9]", "");
+                    usernameTextBox.Text = username;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Silently handle any errors in username generation
+                Console.WriteLine($"Error generating username: {ex.Message}");
+            }
+        }
+
         public string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(password);
                 byte[] hash = sha256.ComputeHash(bytes);
-
 
                 StringBuilder result = new StringBuilder();
                 foreach (byte b in hash)

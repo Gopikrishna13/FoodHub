@@ -197,6 +197,7 @@
             this.OrdersLabel.Size = new System.Drawing.Size(146, 54);
             this.OrdersLabel.TabIndex = 16;
             this.OrdersLabel.Text = "📋 Orders";
+            this.OrdersLabel.Click += new System.EventHandler(this.OrdersLabel_Click);
             // 
             // LogOutLabel
             // 
@@ -292,6 +293,7 @@
             this.FoodItemLabel.Size = new System.Drawing.Size(173, 54);
             this.FoodItemLabel.TabIndex = 24;
             this.FoodItemLabel.Text = "🍕Food Item";
+            this.FoodItemLabel.Click += new System.EventHandler(this.FoodItemLabel_Click);
             // 
             // headerPanel
             // 

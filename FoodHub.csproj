@@ -48,6 +48,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -111,6 +112,66 @@
     <Compile Include="EditRiderForm.Designer.cs">
       <DependentUpon>EditRiderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoodItemManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodItemManagementForm.Designer.cs">
+      <DependentUpon>FoodItemManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFoodItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFoodItemForm.Designer.cs">
+      <DependentUpon>AddFoodItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditFoodItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFoodItemForm.Designer.cs">
+      <DependentUpon>EditFoodItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerDashboardForm.Designer.cs">
+      <DependentUpon>CustomerDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerFoodItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerFoodItemForm.Designer.cs">
+      <DependentUpon>CustomerFoodItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerOrdersForm.Designer.cs">
+      <DependentUpon>CustomerOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOrdersForm.Designer.cs">
+      <DependentUpon>AdminOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiderAssignmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderAssignmentForm.Designer.cs">
+      <DependentUpon>RiderAssignmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiderDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderDashboardForm.Designer.cs">
+      <DependentUpon>RiderDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RiderOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderOrdersForm.Designer.cs">
+      <DependentUpon>RiderOrdersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BikeAssignment.cs" />
     <Compile Include="Models\BikeColor.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -152,6 +213,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditRiderForm.resx">
       <DependentUpon>EditRiderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodItemManagementForm.resx">
+      <DependentUpon>FoodItemManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFoodItemForm.resx">
+      <DependentUpon>AddFoodItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFoodItemForm.resx">
+      <DependentUpon>EditFoodItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerDashboardForm.resx">
+      <DependentUpon>CustomerDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerFoodItemForm.resx">
+      <DependentUpon>CustomerFoodItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerOrdersForm.resx">
+      <DependentUpon>CustomerOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOrdersForm.resx">
+      <DependentUpon>AdminOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderAssignmentForm.resx">
+      <DependentUpon>RiderAssignmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderDashboardForm.resx">
+      <DependentUpon>RiderDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderOrdersForm.resx">
+      <DependentUpon>RiderOrdersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

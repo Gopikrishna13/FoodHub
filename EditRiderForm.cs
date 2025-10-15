@@ -20,6 +20,10 @@ namespace FoodHub
             riderId = riderIdParam;
             LoadRiderDetails();
             LoadDependents();
+            
+            // Add username generation for edit form (in case user changes name)
+            firstNameTextBox.TextChanged += GenerateUsername;
+            lastNameTextBox.TextChanged += GenerateUsername;
         }
 
         private void LoadRiderDetails()
@@ -166,6 +170,32 @@ namespace FoodHub
             }
 
             return true;
+        }
+
+        private void GenerateUsername(object sender, EventArgs e)
+        {
+            try
+            {
+                // Only auto-generate if the current username follows the rider pattern
+                if (usernameTextBox.Text.StartsWith("rider") || string.IsNullOrEmpty(usernameTextBox.Text))
+                {
+                    string firstName = firstNameTextBox.Text.Trim().ToLower();
+                    string lastName = lastNameTextBox.Text.Trim().ToLower();
+                    
+                    if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+                    {
+                        Random random = new Random();
+                        int randomNumber = random.Next(100, 999);
+                        string username = $"rider{firstName}{lastName}{randomNumber}";
+                        username = System.Text.RegularExpressions.Regex.Replace(username, @"[^a-zA-Z0-9]", "");
+                        usernameTextBox.Text = username;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error generating username: {ex.Message}");
+            }
         }
 
         public string HashPassword(string password)

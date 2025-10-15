@@ -41,6 +41,11 @@ namespace FoodHub
             DeleteColumn.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(231, 76, 60);
             DeleteColumn.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             DeleteColumn.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(231, 76, 60);
+            
+            DependentsCount.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
+            DependentsCount.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            DependentsCount.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(41, 128, 185);
+            DependentsCount.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline);
         }
 
         private void LoadRiders()
@@ -52,22 +57,40 @@ namespace FoodHub
 
                 foreach (var rider in riders)
                 {
-                    ridersDataGridView.Rows.Add(
-                        rider.RiderID,
+                    var dependents = foodHubService.GetRiderDependents(rider.RiderID);
+                    string dependentsInfo = GetDependentsDisplayText(dependents);
+                    
+                    var row = ridersDataGridView.Rows[ridersDataGridView.Rows.Add(
                         $"{rider.FirstName} {rider.LastName}",
                         rider.NIC,
                         rider.ContactNumber,
-                        rider.LicenseNumber,
-                        rider.UserName,
+                        dependentsInfo,
                         "✏️ Edit",
                         "🗑️ Delete"
-                    );
+                    )];
+                    row.Tag = rider.RiderID;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading riders: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private string GetDependentsDisplayText(System.Collections.Generic.List<Dependent> dependents)
+        {
+            if (dependents == null || dependents.Count == 0)
+            {
+                return "No Dependents";
+            }
+
+            var dependentsList = new System.Collections.Generic.List<string>();
+            foreach (var dep in dependents)
+            {
+                dependentsList.Add($"{dep.Name} ({dep.Relationship})");
+            }
+            
+            return $"{dependents.Count} - " + string.Join(", ", dependentsList);
         }
 
         public void RefreshGrid()
@@ -79,16 +102,18 @@ namespace FoodHub
                 
                 foreach (var rider in riders)
                 {
-                    ridersDataGridView.Rows.Add(
-                        rider.RiderID,
+                    var dependents = foodHubService.GetRiderDependents(rider.RiderID);
+                    string dependentsInfo = GetDependentsDisplayText(dependents);
+                    
+                    var row = ridersDataGridView.Rows[ridersDataGridView.Rows.Add(
                         $"{rider.FirstName} {rider.LastName}",
                         rider.NIC,
                         rider.ContactNumber,
-                        rider.LicenseNumber,
-                        rider.UserName,
+                        dependentsInfo,
                         "✏️ Edit",
                         "🗑️ Delete"
-                    );
+                    )];
+                    row.Tag = rider.RiderID;
                 }
             }
             catch (Exception ex)
@@ -127,7 +152,7 @@ namespace FoodHub
         {
             if (e.RowIndex >= 0)
             {
-                var riderId = ridersDataGridView.Rows[e.RowIndex].Cells["RiderID"].Value?.ToString();
+                var riderId = ridersDataGridView.Rows[e.RowIndex].Tag?.ToString();
                 
                 if (e.ColumnIndex == ridersDataGridView.Columns["UpdateColumn"].Index)
                 {
@@ -137,6 +162,41 @@ namespace FoodHub
                 {
                     DeleteRider(int.Parse(riderId));
                 }
+                else if (e.ColumnIndex == ridersDataGridView.Columns["DependentsCount"].Index)
+                {
+                    ShowDependentsDetails(int.Parse(riderId));
+                }
+            }
+        }
+
+        private void ShowDependentsDetails(int riderId)
+        {
+            try
+            {
+                var dependents = foodHubService.GetRiderDependents(riderId);
+                var rider = foodHubService.GetSingleRider(riderId);
+                
+                if (dependents.Count == 0)
+                {
+                    MessageBox.Show($"Rider '{rider.FirstName} {rider.LastName}' has no dependents.", 
+                        "Dependents Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var message = $"Dependents for {rider.FirstName} {rider.LastName}:\n\n";
+                foreach (var dep in dependents)
+                {
+                    message += $"• {dep.Name}\n";
+                    message += $"  Relationship: {dep.Relationship}\n";
+                    message += $"  Date of Birth: {dep.DateOfBirth.ToShortDateString()}\n";
+                    message += $"  Age: {DateTime.Now.Year - dep.DateOfBirth.Year} years\n\n";
+                }
+
+                MessageBox.Show(message, "Dependents Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading dependents details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

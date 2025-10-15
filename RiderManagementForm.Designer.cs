@@ -56,7 +56,7 @@ namespace FoodHub
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1200, 70);
+            this.headerPanel.Size = new System.Drawing.Size(1300, 70);
             this.headerPanel.TabIndex = 0;
             // 
             // closeButton
@@ -68,7 +68,7 @@ namespace FoodHub
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(1120, 20);
+            this.closeButton.Location = new System.Drawing.Point(1220, 20);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(60, 30);
             this.closeButton.TabIndex = 1;
@@ -111,12 +111,9 @@ namespace FoodHub
             this.ridersDataGridView.ColumnHeadersHeight = 40;
             this.ridersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ridersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RiderID,
             this.FullName,
             this.NIC,
             this.ContactNumber,
-            this.LicenseNumber,
-            this.Age,
             this.DependentsCount,
             this.UpdateColumn,
             this.DeleteColumn});
@@ -127,9 +124,14 @@ namespace FoodHub
             this.ridersDataGridView.RowHeadersVisible = false;
             this.ridersDataGridView.RowHeadersWidth = 51;
             this.ridersDataGridView.RowTemplate.Height = 45;
+            this.ridersDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.ridersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.None;
+            this.ridersDataGridView.AllowUserToResizeColumns = false;
+            this.ridersDataGridView.AllowUserToResizeRows = false;
             this.ridersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ridersDataGridView.Size = new System.Drawing.Size(1140, 515);
+            this.ridersDataGridView.Size = new System.Drawing.Size(1200, 515);
             this.ridersDataGridView.TabIndex = 2;
+            this.ridersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ridersDataGridView_CellContentClick);
             // 
             // RiderID
             // 
@@ -137,7 +139,7 @@ namespace FoodHub
             this.RiderID.MinimumWidth = 6;
             this.RiderID.Name = "RiderID";
             this.RiderID.ReadOnly = true;
-            this.RiderID.Width = 80;
+            this.RiderID.Width = 100;
             // 
             // FullName
             // 
@@ -145,7 +147,7 @@ namespace FoodHub
             this.FullName.MinimumWidth = 6;
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
-            this.FullName.Width = 200;
+            this.FullName.Width = 300;
             // 
             // NIC
             // 
@@ -153,7 +155,7 @@ namespace FoodHub
             this.NIC.MinimumWidth = 6;
             this.NIC.Name = "NIC";
             this.NIC.ReadOnly = true;
-            this.NIC.Width = 120;
+            this.NIC.Width = 180;
             // 
             // ContactNumber
             // 
@@ -161,7 +163,7 @@ namespace FoodHub
             this.ContactNumber.MinimumWidth = 6;
             this.ContactNumber.Name = "ContactNumber";
             this.ContactNumber.ReadOnly = true;
-            this.ContactNumber.Width = 130;
+            this.ContactNumber.Width = 200;
             // 
             // LicenseNumber
             // 
@@ -169,7 +171,7 @@ namespace FoodHub
             this.LicenseNumber.MinimumWidth = 6;
             this.LicenseNumber.Name = "LicenseNumber";
             this.LicenseNumber.ReadOnly = true;
-            this.LicenseNumber.Width = 140;
+            this.LicenseNumber.Width = 200;
             // 
             // Age
             // 
@@ -177,15 +179,15 @@ namespace FoodHub
             this.Age.MinimumWidth = 6;
             this.Age.Name = "Age";
             this.Age.ReadOnly = true;
-            this.Age.Width = 60;
+            this.Age.Width = 80;
             // 
             // DependentsCount
             // 
-            this.DependentsCount.HeaderText = "Dependents";
+            this.DependentsCount.HeaderText = "Dependents (Click to View)";
             this.DependentsCount.MinimumWidth = 6;
             this.DependentsCount.Name = "DependentsCount";
             this.DependentsCount.ReadOnly = true;
-            this.DependentsCount.Width = 125;
+            this.DependentsCount.Width = 400;
             // 
             // UpdateColumn
             // 
@@ -195,7 +197,7 @@ namespace FoodHub
             this.UpdateColumn.ReadOnly = true;
             this.UpdateColumn.Text = "✏️ Edit";
             this.UpdateColumn.UseColumnTextForButtonValue = true;
-            this.UpdateColumn.Width = 125;
+            this.UpdateColumn.Width = 100;
             // 
             // DeleteColumn
             // 
@@ -205,7 +207,7 @@ namespace FoodHub
             this.DeleteColumn.ReadOnly = true;
             this.DeleteColumn.Text = "🗑️ Delete";
             this.DeleteColumn.UseColumnTextForButtonValue = true;
-            this.DeleteColumn.Width = 125;
+            this.DeleteColumn.Width = 100;
             // 
             // addRiderButton
             // 
@@ -227,7 +229,7 @@ namespace FoodHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1300, 700);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
