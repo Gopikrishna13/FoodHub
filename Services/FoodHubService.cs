@@ -655,28 +655,163 @@ namespace FoodHub.Services
             }
         }
 
-        public bool DeleteFoodItem(int itemId)
+        public string DeleteFoodItem(int itemId)
         {
             try
             {
                 using (var context = new FoodHubContext())
                 {
                     var foodItem = context.FoodItems.FirstOrDefault(f => f.ItemID == itemId);
-                    if (foodItem != null)
+                    if (foodItem == null)
                     {
-                        var foodItemIngredients = context.FoodItemIngredients.Where(fi => fi.ItemID == itemId).ToList();
-                        context.FoodItemIngredients.RemoveRange(foodItemIngredients);
-                        context.FoodItems.Remove(foodItem);
-                        int result = context.SaveChanges();
-                        return result > 0;
+                        return "Error: Food item not found";
                     }
-                    return false;
+
+                    // Check if food item is used in any orders
+                    var orderItems = context.OrderItems.Where(oi => oi.ItemID == itemId).ToList();
+                    if (orderItems.Any())
+                    {
+                        // Get order details for better error message
+                        var orderIds = orderItems.Select(oi => oi.OrderID).Distinct().ToList();
+                        var orderCount = orderIds.Count;
+                        
+                        return $"Cannot delete food item '{foodItem.ItemName}' because it is used in {orderCount} order(s). " +
+                               $"Order IDs: {string.Join(", ", orderIds.Take(5))}" + 
+                               (orderIds.Count > 5 ? "..." : "");
+                    }
+
+                    // Remove related FoodItemIngredients first (these can be safely deleted)
+                    var foodItemIngredients = context.FoodItemIngredients.Where(fi => fi.ItemID == itemId).ToList();
+                    if (foodItemIngredients.Any())
+                    {
+                        context.FoodItemIngredients.RemoveRange(foodItemIngredients);
+                        Console.WriteLine($"Removed {foodItemIngredients.Count} ingredient associations");
+                    }
+
+                    // Now remove the food item
+                    context.FoodItems.Remove(foodItem);
+                    int result = context.SaveChanges();
+                    
+                    if (result > 0)
+                    {
+                        return "SUCCESS";
+                    }
+                    else
+                    {
+                        return "Error: Failed to delete food item from database";
+                    }
                 }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                if (ex.Number == 547) // Foreign key constraint violation
+                {
+                    return "Cannot delete food item because it is referenced in existing orders. Please remove it from all orders first.";
+                }
+                return $"Database error: {ex.Message}";
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error deleting food item: {ex.Message}");
-                return false;
+                return $"Unexpected error: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// Force delete food item and all related data (Admin only - use with caution!)
+        /// </summary>
+        public string ForceDeleteFoodItem(int itemId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var foodItem = context.FoodItems.FirstOrDefault(f => f.ItemID == itemId);
+                    if (foodItem == null)
+                    {
+                        return "Error: Food item not found";
+                    }
+
+                    // Remove all OrderItems that reference this food item
+                    var orderItems = context.OrderItems.Where(oi => oi.ItemID == itemId).ToList();
+                    if (orderItems.Any())
+                    {
+                        context.OrderItems.RemoveRange(orderItems);
+                        Console.WriteLine($"Removed {orderItems.Count} order item references");
+                    }
+
+                    // Remove related FoodItemIngredients
+                    var foodItemIngredients = context.FoodItemIngredients.Where(fi => fi.ItemID == itemId).ToList();
+                    if (foodItemIngredients.Any())
+                    {
+                        context.FoodItemIngredients.RemoveRange(foodItemIngredients);
+                        Console.WriteLine($"Removed {foodItemIngredients.Count} ingredient associations");
+                    }
+
+                    // Now remove the food item
+                    context.FoodItems.Remove(foodItem);
+                    int result = context.SaveChanges();
+                    
+                    if (result > 0)
+                    {
+                        return "SUCCESS";
+                    }
+                    else
+                    {
+                        return "Error: Failed to delete food item from database";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error force deleting food item: {ex.Message}");
+                return $"Error: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// Check what's preventing a food item from being deleted
+        /// </summary>
+        public string CheckFoodItemDeletionStatus(int itemId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var foodItem = context.FoodItems.FirstOrDefault(f => f.ItemID == itemId);
+                    if (foodItem == null)
+                    {
+                        return "Food item not found";
+                    }
+
+                    var orderItems = context.OrderItems.Where(oi => oi.ItemID == itemId).ToList();
+                    var ingredients = context.FoodItemIngredients.Where(fi => fi.ItemID == itemId).ToList();
+
+                    string status = $"Food Item: {foodItem.ItemName}\n";
+                    status += $"- Used in {orderItems.Count} order items\n";
+                    status += $"- Has {ingredients.Count} ingredient associations\n";
+
+                    if (orderItems.Any())
+                    {
+                        var orderIds = orderItems.Select(oi => oi.OrderID).Distinct().Take(10).ToList();
+                        status += $"- Referenced in orders: {string.Join(", ", orderIds)}\n";
+                    }
+
+                    if (orderItems.Any())
+                    {
+                        status += "\nCannot delete: Food item is used in existing orders";
+                    }
+                    else
+                    {
+                        status += "\nCan be safely deleted";
+                    }
+
+                    return status;
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error checking deletion status: {ex.Message}";
             }
         }
 

@@ -131,21 +131,51 @@ namespace FoodHub
                 var foodItem = foodHubService.GetSingleFoodItem(itemId);
                 if (foodItem != null)
                 {
-                    var result = MessageBox.Show($"Are you sure you want to delete '{foodItem.ItemName}'? This will also remove all associated ingredients.", 
-                        "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    
-                    if (result == DialogResult.Yes)
+                   
+                    string status = foodHubService.CheckFoodItemDeletionStatus(itemId);
+
+                  
+                    var statusResult = MessageBox.Show($"{status}\n\nDo you want to proceed with deletion?",
+                        "Deletion Status", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                    if (statusResult == DialogResult.Yes)
                     {
-                        bool success = foodHubService.DeleteFoodItem(itemId);
-                        if (success)
+                        string result = foodHubService.DeleteFoodItem(itemId);
+
+                        if (result == "SUCCESS")
                         {
                             RefreshGrid();
                             MessageBox.Show("Food item deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Failed to delete food item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Show detailed error and offer force delete option
+                            var forceResult = MessageBox.Show($"{result}\n\nDo you want to FORCE DELETE this item? This will remove it from all orders!",
+                                "Deletion Failed - Force Delete?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                            if (forceResult == DialogResult.Yes)
+                            {
+                                string forceDeleteResult = foodHubService.ForceDeleteFoodItem(itemId);
+
+                                if (forceDeleteResult == "SUCCESS")
+                                {
+                                    RefreshGrid();
+                                    MessageBox.Show("Food item force deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"Force delete failed: {forceDeleteResult}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
                         }
+                    }
+                    else if (statusResult == DialogResult.Cancel)
+                    {
+                        return; // User cancelled
+                    }
+                    else
+                    {
+                        MessageBox.Show("Food item not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

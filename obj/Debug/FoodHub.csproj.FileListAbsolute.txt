@@ -28,7 +28,7 @@ C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerDashboardForm
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerFoodItemForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.CustomerOrdersForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AdminOrdersForm.resources
-C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.exe.config
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderAssignmentForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderDashboardForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderOrdersForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.exe.config
