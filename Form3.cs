@@ -40,12 +40,34 @@ namespace FoodHub
         {
             BikeManagementForm bikeForm = new BikeManagementForm();
             bikeForm.ShowDialog();
+            
+            // Refresh dashboard statistics after bike management form is closed
+            RefreshDashboardStats();
         }
 
         private void RiderAddLabel_Click(object sender, EventArgs e)
         {
             RiderManagementForm riderForm = new RiderManagementForm();
             riderForm.ShowDialog();
+            RefreshDashboardStats();
+        }
+
+        public void RefreshDashboardStats()
+        {
+            try
+            {
+                // Refresh all dashboard statistics
+                TotalUserCount.Text = service.TotalUsers().ToString();
+                RiderCount.Text = service.TotalRiders().ToString();
+                TotalBike.Text = service.TotalBikes().ToString();
+                TotalOrder.Text = service.TotalOrders().ToString();
+                Pending.Text = service.PendingOrders().ToString();
+                Delivered.Text = service.DeliveredOrders().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error refreshing dashboard: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

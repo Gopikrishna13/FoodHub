@@ -38,17 +38,12 @@ namespace FoodHub
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EngineNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegisteredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.searchPanel = new System.Windows.Forms.Panel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.searchLabel = new System.Windows.Forms.Label();
             this.addBikeButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bikesDataGridView)).BeginInit();
-            this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerPanel
@@ -59,7 +54,7 @@ namespace FoodHub
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(1200, 70);
+            this.headerPanel.Size = new System.Drawing.Size(1400, 70);
             this.headerPanel.TabIndex = 0;
             // 
             // closeButton
@@ -71,7 +66,7 @@ namespace FoodHub
             this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(1120, 20);
+            this.closeButton.Location = new System.Drawing.Point(1320, 20);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(60, 30);
             this.closeButton.TabIndex = 1;
@@ -94,13 +89,12 @@ namespace FoodHub
             // 
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.contentPanel.Controls.Add(this.bikesDataGridView);
-            this.contentPanel.Controls.Add(this.searchPanel);
             this.contentPanel.Controls.Add(this.addBikeButton);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 70);
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Padding = new System.Windows.Forms.Padding(30);
-            this.contentPanel.Size = new System.Drawing.Size(1200, 630);
+            this.contentPanel.Size = new System.Drawing.Size(1400, 630);
             this.contentPanel.TabIndex = 1;
             // 
             // bikesDataGridView
@@ -120,7 +114,6 @@ namespace FoodHub
             this.Model,
             this.EngineNumber,
             this.RegisteredDate,
-            this.Colors,
             this.UpdateColumn,
             this.DeleteColumn});
             this.bikesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
@@ -131,8 +124,9 @@ namespace FoodHub
             this.bikesDataGridView.RowHeadersWidth = 51;
             this.bikesDataGridView.RowTemplate.Height = 45;
             this.bikesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bikesDataGridView.Size = new System.Drawing.Size(1140, 515);
+            this.bikesDataGridView.Size = new System.Drawing.Size(1500, 515);
             this.bikesDataGridView.TabIndex = 2;
+            this.bikesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bikesDataGridView_CellContentClick);
             // 
             // BikeRegNo
             // 
@@ -140,7 +134,7 @@ namespace FoodHub
             this.BikeRegNo.MinimumWidth = 6;
             this.BikeRegNo.Name = "BikeRegNo";
             this.BikeRegNo.ReadOnly = true;
-            this.BikeRegNo.Width = 150;
+            this.BikeRegNo.Width = 160;
             // 
             // Brand
             // 
@@ -148,7 +142,7 @@ namespace FoodHub
             this.Brand.MinimumWidth = 6;
             this.Brand.Name = "Brand";
             this.Brand.ReadOnly = true;
-            this.Brand.Width = 120;
+            this.Brand.Width = 130;
             // 
             // Model
             // 
@@ -156,7 +150,7 @@ namespace FoodHub
             this.Model.MinimumWidth = 6;
             this.Model.Name = "Model";
             this.Model.ReadOnly = true;
-            this.Model.Width = 120;
+            this.Model.Width = 130;
             // 
             // EngineNumber
             // 
@@ -164,7 +158,7 @@ namespace FoodHub
             this.EngineNumber.MinimumWidth = 6;
             this.EngineNumber.Name = "EngineNumber";
             this.EngineNumber.ReadOnly = true;
-            this.EngineNumber.Width = 150;
+            this.EngineNumber.Width = 160;
             // 
             // RegisteredDate
             // 
@@ -172,15 +166,7 @@ namespace FoodHub
             this.RegisteredDate.MinimumWidth = 6;
             this.RegisteredDate.Name = "RegisteredDate";
             this.RegisteredDate.ReadOnly = true;
-            this.RegisteredDate.Width = 130;
-            // 
-            // Colors
-            // 
-            this.Colors.HeaderText = "Colors";
-            this.Colors.MinimumWidth = 6;
-            this.Colors.Name = "Colors";
-            this.Colors.ReadOnly = true;
-            this.Colors.Width = 200;
+            this.RegisteredDate.Width = 140;
             // 
             // UpdateColumn
             // 
@@ -199,38 +185,6 @@ namespace FoodHub
             this.DeleteColumn.ReadOnly = true;
             this.DeleteColumn.Text = "🗑️ Delete";
             this.DeleteColumn.UseColumnTextForButtonValue = true;
-            // 
-            // searchPanel
-            // 
-            this.searchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchPanel.BackColor = System.Drawing.Color.White;
-            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchPanel.Controls.Add(this.searchTextBox);
-            this.searchPanel.Controls.Add(this.searchLabel);
-            this.searchPanel.Location = new System.Drawing.Point(798, 20);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(372, 45);
-            this.searchPanel.TabIndex = 1;
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(102, 14);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(220, 25);
-            this.searchTextBox.TabIndex = 1;
-            // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.searchLabel.Location = new System.Drawing.Point(3, 14);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(93, 23);
-            this.searchLabel.TabIndex = 0;
-            this.searchLabel.Text = "🔍 Search:";
             // 
             // addBikeButton
             // 
@@ -252,7 +206,7 @@ namespace FoodHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1400, 700);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -263,8 +217,6 @@ namespace FoodHub
             this.headerPanel.PerformLayout();
             this.contentPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bikesDataGridView)).EndInit();
-            this.searchPanel.ResumeLayout(false);
-            this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,16 +228,12 @@ namespace FoodHub
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Button addBikeButton;
-        private System.Windows.Forms.Panel searchPanel;
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.DataGridView bikesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn BikeRegNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn EngineNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegisteredDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Colors;
         private System.Windows.Forms.DataGridViewButtonColumn UpdateColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteColumn;
     }

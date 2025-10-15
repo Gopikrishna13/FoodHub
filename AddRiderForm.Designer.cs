@@ -29,61 +29,61 @@ namespace FoodHub
         private void InitializeComponent()
         {
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.personalInfoPanel = new System.Windows.Forms.Panel();
-            this.personalInfoTitle = new System.Windows.Forms.Label();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.middleNameLabel = new System.Windows.Forms.Label();
-            this.middleNameTextBox = new System.Windows.Forms.TextBox();
-            this.lastNameLabel = new System.Windows.Forms.Label();
-            this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.nicLabel = new System.Windows.Forms.Label();
-            this.nicTextBox = new System.Windows.Forms.TextBox();
-            this.dobLabel = new System.Windows.Forms.Label();
-            this.dobDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.ageLabel = new System.Windows.Forms.Label();
-            this.ageTextBox = new System.Windows.Forms.TextBox();
-            this.contactInfoPanel = new System.Windows.Forms.Panel();
-            this.contactInfoTitle = new System.Windows.Forms.Label();
-            this.contactLabel = new System.Windows.Forms.Label();
-            this.contactTextBox = new System.Windows.Forms.TextBox();
-            this.addressLabel = new System.Windows.Forms.Label();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
-            this.licenseLabel = new System.Windows.Forms.Label();
-            this.licenseTextBox = new System.Windows.Forms.TextBox();
-            this.usernameLabel = new System.Windows.Forms.Label();
-            this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.buttonPanel = new System.Windows.Forms.Panel();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.dependentsPanel = new System.Windows.Forms.Panel();
-            this.dependentsTitle = new System.Windows.Forms.Label();
+            this.addDependentPanel = new System.Windows.Forms.Panel();
+            this.addDependentButton = new System.Windows.Forms.Button();
+            this.depDobDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.depDobLabel = new System.Windows.Forms.Label();
+            this.relationshipComboBox = new System.Windows.Forms.ComboBox();
+            this.relationshipLabel = new System.Windows.Forms.Label();
+            this.depNameTextBox = new System.Windows.Forms.TextBox();
+            this.depNameLabel = new System.Windows.Forms.Label();
             this.dependentsDataGridView = new System.Windows.Forms.DataGridView();
             this.DependentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Relationship = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DependentDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RemoveDependent = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.addDependentPanel = new System.Windows.Forms.Panel();
-            this.depNameLabel = new System.Windows.Forms.Label();
-            this.depNameTextBox = new System.Windows.Forms.TextBox();
-            this.relationshipLabel = new System.Windows.Forms.Label();
-            this.relationshipComboBox = new System.Windows.Forms.ComboBox();
-            this.depDobLabel = new System.Windows.Forms.Label();
-            this.depDobDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.addDependentButton = new System.Windows.Forms.Button();
-            this.buttonPanel = new System.Windows.Forms.Panel();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.dependentsTitle = new System.Windows.Forms.Label();
+            this.contactInfoPanel = new System.Windows.Forms.Panel();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.licenseTextBox = new System.Windows.Forms.TextBox();
+            this.licenseLabel = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.contactTextBox = new System.Windows.Forms.TextBox();
+            this.contactLabel = new System.Windows.Forms.Label();
+            this.contactInfoTitle = new System.Windows.Forms.Label();
+            this.personalInfoPanel = new System.Windows.Forms.Panel();
+            this.ageTextBox = new System.Windows.Forms.TextBox();
+            this.ageLabel = new System.Windows.Forms.Label();
+            this.dobDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.dobLabel = new System.Windows.Forms.Label();
+            this.nicTextBox = new System.Windows.Forms.TextBox();
+            this.nicLabel = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
+            this.middleNameLabel = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.personalInfoTitle = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
-            this.personalInfoPanel.SuspendLayout();
-            this.contactInfoPanel.SuspendLayout();
-            this.dependentsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dependentsDataGridView)).BeginInit();
-            this.addDependentPanel.SuspendLayout();
             this.buttonPanel.SuspendLayout();
+            this.dependentsPanel.SuspendLayout();
+            this.addDependentPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dependentsDataGridView)).BeginInit();
+            this.contactInfoPanel.SuspendLayout();
+            this.personalInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerPanel
@@ -96,17 +96,6 @@ namespace FoodHub
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(1000, 70);
             this.headerPanel.TabIndex = 0;
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(30, 20);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(190, 32);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Add New Rider";
             // 
             // closeButton
             // 
@@ -123,6 +112,18 @@ namespace FoodHub
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "✕";
             this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(30, 20);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(233, 41);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Add New Rider";
             // 
             // contentPanel
             // 
@@ -137,6 +138,361 @@ namespace FoodHub
             this.contentPanel.Padding = new System.Windows.Forms.Padding(30);
             this.contentPanel.Size = new System.Drawing.Size(1000, 730);
             this.contentPanel.TabIndex = 1;
+            // 
+            // buttonPanel
+            // 
+            this.buttonPanel.Controls.Add(this.cancelButton);
+            this.buttonPanel.Controls.Add(this.saveButton);
+            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonPanel.Location = new System.Drawing.Point(30, 650);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(940, 50);
+            this.buttonPanel.TabIndex = 3;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(820, 5);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(120, 40);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "✖️ Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(680, 5);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(120, 40);
+            this.saveButton.TabIndex = 0;
+            this.saveButton.Text = "💾 Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // dependentsPanel
+            // 
+            this.dependentsPanel.BackColor = System.Drawing.Color.White;
+            this.dependentsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dependentsPanel.Controls.Add(this.addDependentPanel);
+            this.dependentsPanel.Controls.Add(this.dependentsDataGridView);
+            this.dependentsPanel.Controls.Add(this.dependentsTitle);
+            this.dependentsPanel.Location = new System.Drawing.Point(30, 330);
+            this.dependentsPanel.Name = "dependentsPanel";
+            this.dependentsPanel.Size = new System.Drawing.Size(940, 300);
+            this.dependentsPanel.TabIndex = 2;
+            // 
+            // addDependentPanel
+            // 
+            this.addDependentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.addDependentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.addDependentPanel.Controls.Add(this.addDependentButton);
+            this.addDependentPanel.Controls.Add(this.depDobDatePicker);
+            this.addDependentPanel.Controls.Add(this.depDobLabel);
+            this.addDependentPanel.Controls.Add(this.relationshipComboBox);
+            this.addDependentPanel.Controls.Add(this.relationshipLabel);
+            this.addDependentPanel.Controls.Add(this.depNameTextBox);
+            this.addDependentPanel.Controls.Add(this.depNameLabel);
+            this.addDependentPanel.Location = new System.Drawing.Point(600, 50);
+            this.addDependentPanel.Name = "addDependentPanel";
+            this.addDependentPanel.Size = new System.Drawing.Size(315, 200);
+            this.addDependentPanel.TabIndex = 2;
+            // 
+            // addDependentButton
+            // 
+            this.addDependentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.addDependentButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addDependentButton.FlatAppearance.BorderSize = 0;
+            this.addDependentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDependentButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addDependentButton.ForeColor = System.Drawing.Color.White;
+            this.addDependentButton.Location = new System.Drawing.Point(190, 160);
+            this.addDependentButton.Name = "addDependentButton";
+            this.addDependentButton.Size = new System.Drawing.Size(100, 23);
+            this.addDependentButton.TabIndex = 6;
+            this.addDependentButton.Text = "➕ Add";
+            this.addDependentButton.UseVisualStyleBackColor = false;
+            this.addDependentButton.Click += new System.EventHandler(this.addDependentButton_Click);
+            // 
+            // depDobDatePicker
+            // 
+            this.depDobDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depDobDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.depDobDatePicker.Location = new System.Drawing.Point(20, 160);
+            this.depDobDatePicker.Name = "depDobDatePicker";
+            this.depDobDatePicker.Size = new System.Drawing.Size(150, 27);
+            this.depDobDatePicker.TabIndex = 5;
+            // 
+            // depDobLabel
+            // 
+            this.depDobLabel.AutoSize = true;
+            this.depDobLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depDobLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.depDobLabel.Location = new System.Drawing.Point(20, 140);
+            this.depDobLabel.Name = "depDobLabel";
+            this.depDobLabel.Size = new System.Drawing.Size(97, 20);
+            this.depDobLabel.TabIndex = 4;
+            this.depDobLabel.Text = "Date of Birth:";
+            // 
+            // relationshipComboBox
+            // 
+            this.relationshipComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.relationshipComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.relationshipComboBox.FormattingEnabled = true;
+            this.relationshipComboBox.Items.AddRange(new object[] {
+            "Spouse",
+            "Child",
+            "Parent",
+            "Sibling",
+            "Other"});
+            this.relationshipComboBox.Location = new System.Drawing.Point(20, 105);
+            this.relationshipComboBox.Name = "relationshipComboBox";
+            this.relationshipComboBox.Size = new System.Drawing.Size(150, 28);
+            this.relationshipComboBox.TabIndex = 3;
+            // 
+            // relationshipLabel
+            // 
+            this.relationshipLabel.AutoSize = true;
+            this.relationshipLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.relationshipLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.relationshipLabel.Location = new System.Drawing.Point(20, 85);
+            this.relationshipLabel.Name = "relationshipLabel";
+            this.relationshipLabel.Size = new System.Drawing.Size(94, 20);
+            this.relationshipLabel.TabIndex = 2;
+            this.relationshipLabel.Text = "Relationship:";
+            // 
+            // depNameTextBox
+            // 
+            this.depNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depNameTextBox.Location = new System.Drawing.Point(20, 50);
+            this.depNameTextBox.MaxLength = 100;
+            this.depNameTextBox.Name = "depNameTextBox";
+            this.depNameTextBox.Size = new System.Drawing.Size(200, 27);
+            this.depNameTextBox.TabIndex = 1;
+            // 
+            // depNameLabel
+            // 
+            this.depNameLabel.AutoSize = true;
+            this.depNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.depNameLabel.Location = new System.Drawing.Point(15, 20);
+            this.depNameLabel.Name = "depNameLabel";
+            this.depNameLabel.Size = new System.Drawing.Size(143, 23);
+            this.depNameLabel.TabIndex = 0;
+            this.depNameLabel.Text = "Add Dependent:";
+            // 
+            // dependentsDataGridView
+            // 
+            this.dependentsDataGridView.AllowUserToAddRows = false;
+            this.dependentsDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.dependentsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dependentsDataGridView.ColumnHeadersHeight = 35;
+            this.dependentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dependentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DependentName,
+            this.Relationship,
+            this.DependentDOB,
+            this.RemoveDependent});
+            this.dependentsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
+            this.dependentsDataGridView.Location = new System.Drawing.Point(25, 50);
+            this.dependentsDataGridView.Name = "dependentsDataGridView";
+            this.dependentsDataGridView.ReadOnly = true;
+            this.dependentsDataGridView.RowHeadersVisible = false;
+            this.dependentsDataGridView.RowHeadersWidth = 51;
+            this.dependentsDataGridView.RowTemplate.Height = 35;
+            this.dependentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dependentsDataGridView.Size = new System.Drawing.Size(550, 150);
+            this.dependentsDataGridView.TabIndex = 1;
+            // 
+            // DependentName
+            // 
+            this.DependentName.HeaderText = "Name";
+            this.DependentName.MinimumWidth = 6;
+            this.DependentName.Name = "DependentName";
+            this.DependentName.ReadOnly = true;
+            this.DependentName.Width = 180;
+            // 
+            // Relationship
+            // 
+            this.Relationship.HeaderText = "Relationship";
+            this.Relationship.MinimumWidth = 6;
+            this.Relationship.Name = "Relationship";
+            this.Relationship.ReadOnly = true;
+            this.Relationship.Width = 130;
+            // 
+            // DependentDOB
+            // 
+            this.DependentDOB.HeaderText = "Date of Birth";
+            this.DependentDOB.MinimumWidth = 6;
+            this.DependentDOB.Name = "DependentDOB";
+            this.DependentDOB.ReadOnly = true;
+            this.DependentDOB.Width = 120;
+            // 
+            // RemoveDependent
+            // 
+            this.RemoveDependent.HeaderText = "Remove";
+            this.RemoveDependent.MinimumWidth = 6;
+            this.RemoveDependent.Name = "RemoveDependent";
+            this.RemoveDependent.ReadOnly = true;
+            this.RemoveDependent.Text = "🗑️ Remove";
+            this.RemoveDependent.UseColumnTextForButtonValue = true;
+            // 
+            // dependentsTitle
+            // 
+            this.dependentsTitle.AutoSize = true;
+            this.dependentsTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dependentsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.dependentsTitle.Location = new System.Drawing.Point(20, 15);
+            this.dependentsTitle.Name = "dependentsTitle";
+            this.dependentsTitle.Size = new System.Drawing.Size(151, 32);
+            this.dependentsTitle.TabIndex = 0;
+            this.dependentsTitle.Text = "Dependents";
+            // 
+            // contactInfoPanel
+            // 
+            this.contactInfoPanel.BackColor = System.Drawing.Color.White;
+            this.contactInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contactInfoPanel.Controls.Add(this.passwordTextBox);
+            this.contactInfoPanel.Controls.Add(this.passwordLabel);
+            this.contactInfoPanel.Controls.Add(this.usernameTextBox);
+            this.contactInfoPanel.Controls.Add(this.usernameLabel);
+            this.contactInfoPanel.Controls.Add(this.licenseTextBox);
+            this.contactInfoPanel.Controls.Add(this.licenseLabel);
+            this.contactInfoPanel.Controls.Add(this.addressTextBox);
+            this.contactInfoPanel.Controls.Add(this.addressLabel);
+            this.contactInfoPanel.Controls.Add(this.contactTextBox);
+            this.contactInfoPanel.Controls.Add(this.contactLabel);
+            this.contactInfoPanel.Controls.Add(this.contactInfoTitle);
+            this.contactInfoPanel.Location = new System.Drawing.Point(510, 30);
+            this.contactInfoPanel.Name = "contactInfoPanel";
+            this.contactInfoPanel.Size = new System.Drawing.Size(460, 280);
+            this.contactInfoPanel.TabIndex = 1;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Location = new System.Drawing.Point(160, 233);
+            this.passwordTextBox.MaxLength = 255;
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(150, 27);
+            this.passwordTextBox.TabIndex = 10;
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.passwordLabel.Location = new System.Drawing.Point(25, 235);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(92, 23);
+            this.passwordLabel.TabIndex = 9;
+            this.passwordLabel.Text = "Password *";
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.Location = new System.Drawing.Point(160, 198);
+            this.usernameTextBox.MaxLength = 255;
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(150, 27);
+            this.usernameTextBox.TabIndex = 8;
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.usernameLabel.Location = new System.Drawing.Point(25, 200);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(99, 23);
+            this.usernameLabel.TabIndex = 7;
+            this.usernameLabel.Text = "Username *";
+            // 
+            // licenseTextBox
+            // 
+            this.licenseTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.licenseTextBox.Location = new System.Drawing.Point(160, 163);
+            this.licenseTextBox.MaxLength = 20;
+            this.licenseTextBox.Name = "licenseTextBox";
+            this.licenseTextBox.Size = new System.Drawing.Size(150, 27);
+            this.licenseTextBox.TabIndex = 6;
+            // 
+            // licenseLabel
+            // 
+            this.licenseLabel.AutoSize = true;
+            this.licenseLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.licenseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.licenseLabel.Location = new System.Drawing.Point(25, 165);
+            this.licenseLabel.Name = "licenseLabel";
+            this.licenseLabel.Size = new System.Drawing.Size(145, 23);
+            this.licenseLabel.TabIndex = 5;
+            this.licenseLabel.Text = "License Number *";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressTextBox.Location = new System.Drawing.Point(160, 88);
+            this.addressTextBox.MaxLength = 255;
+            this.addressTextBox.Multiline = true;
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(250, 60);
+            this.addressTextBox.TabIndex = 4;
+            // 
+            // addressLabel
+            // 
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.addressLabel.Location = new System.Drawing.Point(25, 90);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(82, 23);
+            this.addressLabel.TabIndex = 3;
+            this.addressLabel.Text = "Address *";
+            // 
+            // contactTextBox
+            // 
+            this.contactTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactTextBox.Location = new System.Drawing.Point(160, 53);
+            this.contactTextBox.MaxLength = 15;
+            this.contactTextBox.Name = "contactTextBox";
+            this.contactTextBox.Size = new System.Drawing.Size(150, 27);
+            this.contactTextBox.TabIndex = 2;
+            // 
+            // contactLabel
+            // 
+            this.contactLabel.AutoSize = true;
+            this.contactLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.contactLabel.Location = new System.Drawing.Point(25, 55);
+            this.contactLabel.Name = "contactLabel";
+            this.contactLabel.Size = new System.Drawing.Size(150, 23);
+            this.contactLabel.TabIndex = 1;
+            this.contactLabel.Text = "Contact Number *";
+            // 
+            // contactInfoTitle
+            // 
+            this.contactInfoTitle.AutoSize = true;
+            this.contactInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.contactInfoTitle.Location = new System.Drawing.Point(20, 15);
+            this.contactInfoTitle.Name = "contactInfoTitle";
+            this.contactInfoTitle.Size = new System.Drawing.Size(234, 32);
+            this.contactInfoTitle.TabIndex = 0;
+            this.contactInfoTitle.Text = "Contact & Login Info";
             // 
             // personalInfoPanel
             // 
@@ -160,116 +516,13 @@ namespace FoodHub
             this.personalInfoPanel.Size = new System.Drawing.Size(460, 280);
             this.personalInfoPanel.TabIndex = 0;
             // 
-            // personalInfoTitle
+            // ageTextBox
             // 
-            this.personalInfoTitle.AutoSize = true;
-            this.personalInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personalInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.personalInfoTitle.Location = new System.Drawing.Point(20, 15);
-            this.personalInfoTitle.Name = "personalInfoTitle";
-            this.personalInfoTitle.Size = new System.Drawing.Size(167, 25);
-            this.personalInfoTitle.TabIndex = 0;
-            this.personalInfoTitle.Text = "Personal Information";
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.firstNameLabel.Location = new System.Drawing.Point(25, 55);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(84, 19);
-            this.firstNameLabel.TabIndex = 1;
-            this.firstNameLabel.Text = "First Name *";
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(130, 53);
-            this.firstNameTextBox.MaxLength = 50;
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(150, 23);
-            this.firstNameTextBox.TabIndex = 2;
-            // 
-            // middleNameLabel
-            // 
-            this.middleNameLabel.AutoSize = true;
-            this.middleNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.middleNameLabel.Location = new System.Drawing.Point(25, 90);
-            this.middleNameLabel.Name = "middleNameLabel";
-            this.middleNameLabel.Size = new System.Drawing.Size(91, 19);
-            this.middleNameLabel.TabIndex = 3;
-            this.middleNameLabel.Text = "Middle Name";
-            // 
-            // middleNameTextBox
-            // 
-            this.middleNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleNameTextBox.Location = new System.Drawing.Point(130, 88);
-            this.middleNameTextBox.MaxLength = 50;
-            this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(150, 23);
-            this.middleNameTextBox.TabIndex = 4;
-            // 
-            // lastNameLabel
-            // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.lastNameLabel.Location = new System.Drawing.Point(25, 125);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(83, 19);
-            this.lastNameLabel.TabIndex = 5;
-            this.lastNameLabel.Text = "Last Name *";
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(130, 123);
-            this.lastNameTextBox.MaxLength = 50;
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(150, 23);
-            this.lastNameTextBox.TabIndex = 6;
-            // 
-            // nicLabel
-            // 
-            this.nicLabel.AutoSize = true;
-            this.nicLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nicLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.nicLabel.Location = new System.Drawing.Point(25, 160);
-            this.nicLabel.Name = "nicLabel";
-            this.nicLabel.Size = new System.Drawing.Size(38, 19);
-            this.nicLabel.TabIndex = 7;
-            this.nicLabel.Text = "NIC *";
-            // 
-            // nicTextBox
-            // 
-            this.nicTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nicTextBox.Location = new System.Drawing.Point(130, 158);
-            this.nicTextBox.MaxLength = 12;
-            this.nicTextBox.Name = "nicTextBox";
-            this.nicTextBox.Size = new System.Drawing.Size(150, 23);
-            this.nicTextBox.TabIndex = 8;
-            // 
-            // dobLabel
-            // 
-            this.dobLabel.AutoSize = true;
-            this.dobLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.dobLabel.Location = new System.Drawing.Point(25, 195);
-            this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(98, 19);
-            this.dobLabel.TabIndex = 9;
-            this.dobLabel.Text = "Date of Birth *";
-            // 
-            // dobDatePicker
-            // 
-            this.dobDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dobDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dobDatePicker.Location = new System.Drawing.Point(130, 193);
-            this.dobDatePicker.Name = "dobDatePicker";
-            this.dobDatePicker.Size = new System.Drawing.Size(150, 23);
-            this.dobDatePicker.TabIndex = 10;
+            this.ageTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ageTextBox.Location = new System.Drawing.Point(130, 228);
+            this.ageTextBox.Name = "ageTextBox";
+            this.ageTextBox.Size = new System.Drawing.Size(80, 27);
+            this.ageTextBox.TabIndex = 12;
             // 
             // ageLabel
             // 
@@ -278,366 +531,120 @@ namespace FoodHub
             this.ageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ageLabel.Location = new System.Drawing.Point(25, 230);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(40, 19);
+            this.ageLabel.Size = new System.Drawing.Size(52, 23);
             this.ageLabel.TabIndex = 11;
             this.ageLabel.Text = "Age *";
             // 
-            // ageTextBox
+            // dobDatePicker
             // 
-            this.ageTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageTextBox.Location = new System.Drawing.Point(130, 228);
-            this.ageTextBox.Name = "ageTextBox";
-            this.ageTextBox.Size = new System.Drawing.Size(80, 23);
-            this.ageTextBox.TabIndex = 12;
+            this.dobDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dobDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dobDatePicker.Location = new System.Drawing.Point(130, 193);
+            this.dobDatePicker.Name = "dobDatePicker";
+            this.dobDatePicker.Size = new System.Drawing.Size(150, 27);
+            this.dobDatePicker.TabIndex = 10;
             // 
-            // contactInfoPanel
+            // dobLabel
             // 
-            this.contactInfoPanel.BackColor = System.Drawing.Color.White;
-            this.contactInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contactInfoPanel.Controls.Add(this.passwordTextBox);
-            this.contactInfoPanel.Controls.Add(this.passwordLabel);
-            this.contactInfoPanel.Controls.Add(this.usernameTextBox);
-            this.contactInfoPanel.Controls.Add(this.usernameLabel);
-            this.contactInfoPanel.Controls.Add(this.licenseTextBox);
-            this.contactInfoPanel.Controls.Add(this.licenseLabel);
-            this.contactInfoPanel.Controls.Add(this.addressTextBox);
-            this.contactInfoPanel.Controls.Add(this.addressLabel);
-            this.contactInfoPanel.Controls.Add(this.contactTextBox);
-            this.contactInfoPanel.Controls.Add(this.contactLabel);
-            this.contactInfoPanel.Controls.Add(this.contactInfoTitle);
-            this.contactInfoPanel.Location = new System.Drawing.Point(510, 30);
-            this.contactInfoPanel.Name = "contactInfoPanel";
-            this.contactInfoPanel.Size = new System.Drawing.Size(460, 280);
-            this.contactInfoPanel.TabIndex = 1;
+            this.dobLabel.AutoSize = true;
+            this.dobLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dobLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.dobLabel.Location = new System.Drawing.Point(25, 195);
+            this.dobLabel.Name = "dobLabel";
+            this.dobLabel.Size = new System.Drawing.Size(119, 23);
+            this.dobLabel.TabIndex = 9;
+            this.dobLabel.Text = "Date of Birth *";
             // 
-            // contactInfoTitle
+            // nicTextBox
             // 
-            this.contactInfoTitle.AutoSize = true;
-            this.contactInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.contactInfoTitle.Location = new System.Drawing.Point(20, 15);
-            this.contactInfoTitle.Name = "contactInfoTitle";
-            this.contactInfoTitle.Size = new System.Drawing.Size(194, 25);
-            this.contactInfoTitle.TabIndex = 0;
-            this.contactInfoTitle.Text = "Contact & Login Info";
+            this.nicTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nicTextBox.Location = new System.Drawing.Point(130, 158);
+            this.nicTextBox.MaxLength = 12;
+            this.nicTextBox.Name = "nicTextBox";
+            this.nicTextBox.Size = new System.Drawing.Size(150, 27);
+            this.nicTextBox.TabIndex = 8;
             // 
-            // contactLabel
+            // nicLabel
             // 
-            this.contactLabel.AutoSize = true;
-            this.contactLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.contactLabel.Location = new System.Drawing.Point(25, 55);
-            this.contactLabel.Name = "contactLabel";
-            this.contactLabel.Size = new System.Drawing.Size(119, 19);
-            this.contactLabel.TabIndex = 1;
-            this.contactLabel.Text = "Contact Number *";
+            this.nicLabel.AutoSize = true;
+            this.nicLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nicLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.nicLabel.Location = new System.Drawing.Point(25, 160);
+            this.nicLabel.Name = "nicLabel";
+            this.nicLabel.Size = new System.Drawing.Size(51, 23);
+            this.nicLabel.TabIndex = 7;
+            this.nicLabel.Text = "NIC *";
             // 
-            // contactTextBox
+            // lastNameTextBox
             // 
-            this.contactTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactTextBox.Location = new System.Drawing.Point(160, 53);
-            this.contactTextBox.MaxLength = 15;
-            this.contactTextBox.Name = "contactTextBox";
-            this.contactTextBox.Size = new System.Drawing.Size(150, 23);
-            this.contactTextBox.TabIndex = 2;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.Location = new System.Drawing.Point(130, 123);
+            this.lastNameTextBox.MaxLength = 50;
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(150, 27);
+            this.lastNameTextBox.TabIndex = 6;
             // 
-            // addressLabel
+            // lastNameLabel
             // 
-            this.addressLabel.AutoSize = true;
-            this.addressLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.addressLabel.Location = new System.Drawing.Point(25, 90);
-            this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(69, 19);
-            this.addressLabel.TabIndex = 3;
-            this.addressLabel.Text = "Address *";
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.lastNameLabel.Location = new System.Drawing.Point(25, 125);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(103, 23);
+            this.lastNameLabel.TabIndex = 5;
+            this.lastNameLabel.Text = "Last Name *";
             // 
-            // addressTextBox
+            // middleNameTextBox
             // 
-            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTextBox.Location = new System.Drawing.Point(160, 88);
-            this.addressTextBox.MaxLength = 255;
-            this.addressTextBox.Multiline = true;
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(250, 60);
-            this.addressTextBox.TabIndex = 4;
+            this.middleNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleNameTextBox.Location = new System.Drawing.Point(130, 88);
+            this.middleNameTextBox.MaxLength = 50;
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(150, 27);
+            this.middleNameTextBox.TabIndex = 4;
             // 
-            // licenseLabel
+            // middleNameLabel
             // 
-            this.licenseLabel.AutoSize = true;
-            this.licenseLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.licenseLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.licenseLabel.Location = new System.Drawing.Point(25, 165);
-            this.licenseLabel.Name = "licenseLabel";
-            this.licenseLabel.Size = new System.Drawing.Size(125, 19);
-            this.licenseLabel.TabIndex = 5;
-            this.licenseLabel.Text = "License Number *";
+            this.middleNameLabel.AutoSize = true;
+            this.middleNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.middleNameLabel.Location = new System.Drawing.Point(25, 90);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(113, 23);
+            this.middleNameLabel.TabIndex = 3;
+            this.middleNameLabel.Text = "Middle Name";
             // 
-            // licenseTextBox
+            // firstNameTextBox
             // 
-            this.licenseTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.licenseTextBox.Location = new System.Drawing.Point(160, 163);
-            this.licenseTextBox.MaxLength = 20;
-            this.licenseTextBox.Name = "licenseTextBox";
-            this.licenseTextBox.Size = new System.Drawing.Size(150, 23);
-            this.licenseTextBox.TabIndex = 6;
+            this.firstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.Location = new System.Drawing.Point(130, 53);
+            this.firstNameTextBox.MaxLength = 50;
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(150, 27);
+            this.firstNameTextBox.TabIndex = 2;
             // 
-            // usernameLabel
+            // firstNameLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.usernameLabel.Location = new System.Drawing.Point(25, 200);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(82, 19);
-            this.usernameLabel.TabIndex = 7;
-            this.usernameLabel.Text = "Username *";
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.firstNameLabel.Location = new System.Drawing.Point(25, 55);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(104, 23);
+            this.firstNameLabel.TabIndex = 1;
+            this.firstNameLabel.Text = "First Name *";
             // 
-            // usernameTextBox
+            // personalInfoTitle
             // 
-            this.usernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTextBox.Location = new System.Drawing.Point(160, 198);
-            this.usernameTextBox.MaxLength = 255;
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(150, 23);
-            this.usernameTextBox.TabIndex = 8;
-            // 
-            // passwordLabel
-            // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.passwordLabel.Location = new System.Drawing.Point(25, 235);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(76, 19);
-            this.passwordLabel.TabIndex = 9;
-            this.passwordLabel.Text = "Password *";
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(160, 233);
-            this.passwordTextBox.MaxLength = 255;
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(150, 23);
-            this.passwordTextBox.TabIndex = 10;
-            // 
-            // dependentsPanel
-            // 
-            this.dependentsPanel.BackColor = System.Drawing.Color.White;
-            this.dependentsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dependentsPanel.Controls.Add(this.addDependentPanel);
-            this.dependentsPanel.Controls.Add(this.dependentsDataGridView);
-            this.dependentsPanel.Controls.Add(this.dependentsTitle);
-            this.dependentsPanel.Location = new System.Drawing.Point(30, 330);
-            this.dependentsPanel.Name = "dependentsPanel";
-            this.dependentsPanel.Size = new System.Drawing.Size(940, 300);
-            this.dependentsPanel.TabIndex = 2;
-            // 
-            // dependentsTitle
-            // 
-            this.dependentsTitle.AutoSize = true;
-            this.dependentsTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dependentsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.dependentsTitle.Location = new System.Drawing.Point(20, 15);
-            this.dependentsTitle.Name = "dependentsTitle";
-            this.dependentsTitle.Size = new System.Drawing.Size(120, 25);
-            this.dependentsTitle.TabIndex = 0;
-            this.dependentsTitle.Text = "Dependents";
-            // 
-            // dependentsDataGridView
-            // 
-            this.dependentsDataGridView.AllowUserToAddRows = false;
-            this.dependentsDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.dependentsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dependentsDataGridView.ColumnHeadersHeight = 35;
-            this.dependentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dependentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DependentName,
-            this.Relationship,
-            this.DependentDOB,
-            this.RemoveDependent});
-            this.dependentsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(195)))), ((int)(((byte)(199)))));
-            this.dependentsDataGridView.Location = new System.Drawing.Point(25, 50);
-            this.dependentsDataGridView.Name = "dependentsDataGridView";
-            this.dependentsDataGridView.ReadOnly = true;
-            this.dependentsDataGridView.RowHeadersVisible = false;
-            this.dependentsDataGridView.RowTemplate.Height = 35;
-            this.dependentsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dependentsDataGridView.Size = new System.Drawing.Size(550, 150);
-            this.dependentsDataGridView.TabIndex = 1;
-            // 
-            // DependentName
-            // 
-            this.DependentName.HeaderText = "Name";
-            this.DependentName.Name = "DependentName";
-            this.DependentName.ReadOnly = true;
-            this.DependentName.Width = 180;
-            // 
-            // Relationship
-            // 
-            this.Relationship.HeaderText = "Relationship";
-            this.Relationship.Name = "Relationship";
-            this.Relationship.ReadOnly = true;
-            this.Relationship.Width = 130;
-            // 
-            // DependentDOB
-            // 
-            this.DependentDOB.HeaderText = "Date of Birth";
-            this.DependentDOB.Name = "DependentDOB";
-            this.DependentDOB.ReadOnly = true;
-            this.DependentDOB.Width = 120;
-            // 
-            // RemoveDependent
-            // 
-            this.RemoveDependent.HeaderText = "Remove";
-            this.RemoveDependent.Name = "RemoveDependent";
-            this.RemoveDependent.ReadOnly = true;
-            this.RemoveDependent.Text = "🗑️ Remove";
-            this.RemoveDependent.UseColumnTextForButtonValue = true;
-            this.RemoveDependent.Width = 100;
-            // 
-            // addDependentPanel
-            // 
-            this.addDependentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.addDependentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.addDependentPanel.Controls.Add(this.addDependentButton);
-            this.addDependentPanel.Controls.Add(this.depDobDatePicker);
-            this.addDependentPanel.Controls.Add(this.depDobLabel);
-            this.addDependentPanel.Controls.Add(this.relationshipComboBox);
-            this.addDependentPanel.Controls.Add(this.relationshipLabel);
-            this.addDependentPanel.Controls.Add(this.depNameTextBox);
-            this.addDependentPanel.Controls.Add(this.depNameLabel);
-            this.addDependentPanel.Location = new System.Drawing.Point(600, 50);
-            this.addDependentPanel.Name = "addDependentPanel";
-            this.addDependentPanel.Size = new System.Drawing.Size(315, 200);
-            this.addDependentPanel.TabIndex = 2;
-            // 
-            // depNameLabel
-            // 
-            this.depNameLabel.AutoSize = true;
-            this.depNameLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.depNameLabel.Location = new System.Drawing.Point(15, 20);
-            this.depNameLabel.Name = "depNameLabel";
-            this.depNameLabel.Size = new System.Drawing.Size(122, 19);
-            this.depNameLabel.TabIndex = 0;
-            this.depNameLabel.Text = "Add Dependent:";
-            // 
-            // depNameTextBox
-            // 
-            this.depNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depNameTextBox.Location = new System.Drawing.Point(20, 50);
-            this.depNameTextBox.MaxLength = 100;
-            this.depNameTextBox.Name = "depNameTextBox";
-           // this.depNameTextBox.PlaceholderText = "Dependent Name";
-            this.depNameTextBox.Size = new System.Drawing.Size(200, 23);
-            this.depNameTextBox.TabIndex = 1;
-            // 
-            // relationshipLabel
-            // 
-            this.relationshipLabel.AutoSize = true;
-            this.relationshipLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.relationshipLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.relationshipLabel.Location = new System.Drawing.Point(20, 85);
-            this.relationshipLabel.Name = "relationshipLabel";
-            this.relationshipLabel.Size = new System.Drawing.Size(76, 15);
-            this.relationshipLabel.TabIndex = 2;
-            this.relationshipLabel.Text = "Relationship:";
-            // 
-            // relationshipComboBox
-            // 
-            this.relationshipComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.relationshipComboBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.relationshipComboBox.FormattingEnabled = true;
-            this.relationshipComboBox.Items.AddRange(new object[] {
-            "Spouse",
-            "Child",
-            "Parent",
-            "Sibling",
-            "Other"});
-            this.relationshipComboBox.Location = new System.Drawing.Point(20, 105);
-            this.relationshipComboBox.Name = "relationshipComboBox";
-            this.relationshipComboBox.Size = new System.Drawing.Size(150, 23);
-            this.relationshipComboBox.TabIndex = 3;
-            // 
-            // depDobLabel
-            // 
-            this.depDobLabel.AutoSize = true;
-            this.depDobLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depDobLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.depDobLabel.Location = new System.Drawing.Point(20, 140);
-            this.depDobLabel.Name = "depDobLabel";
-            this.depDobLabel.Size = new System.Drawing.Size(76, 15);
-            this.depDobLabel.TabIndex = 4;
-            this.depDobLabel.Text = "Date of Birth:";
-            // 
-            // depDobDatePicker
-            // 
-            this.depDobDatePicker.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depDobDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.depDobDatePicker.Location = new System.Drawing.Point(20, 160);
-            this.depDobDatePicker.Name = "depDobDatePicker";
-            this.depDobDatePicker.Size = new System.Drawing.Size(150, 23);
-            this.depDobDatePicker.TabIndex = 5;
-            // 
-            // addDependentButton
-            // 
-            this.addDependentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.addDependentButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addDependentButton.FlatAppearance.BorderSize = 0;
-            this.addDependentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addDependentButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDependentButton.ForeColor = System.Drawing.Color.White;
-            this.addDependentButton.Location = new System.Drawing.Point(190, 160);
-            this.addDependentButton.Name = "addDependentButton";
-            this.addDependentButton.Size = new System.Drawing.Size(100, 23);
-            this.addDependentButton.TabIndex = 6;
-            this.addDependentButton.Text = "➕ Add";
-            this.addDependentButton.UseVisualStyleBackColor = false;
-            // 
-            // buttonPanel
-            // 
-            this.buttonPanel.Controls.Add(this.cancelButton);
-            this.buttonPanel.Controls.Add(this.saveButton);
-            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonPanel.Location = new System.Drawing.Point(30, 650);
-            this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(940, 50);
-            this.buttonPanel.TabIndex = 3;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(680, 5);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 40);
-            this.saveButton.TabIndex = 0;
-            this.saveButton.Text = "💾 Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(820, 5);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(120, 40);
-            this.cancelButton.TabIndex = 1;
-            this.cancelButton.Text = "✖️ Cancel";
-            this.cancelButton.UseVisualStyleBackColor = false;
+            this.personalInfoTitle.AutoSize = true;
+            this.personalInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personalInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.personalInfoTitle.Location = new System.Drawing.Point(20, 15);
+            this.personalInfoTitle.Name = "personalInfoTitle";
+            this.personalInfoTitle.Size = new System.Drawing.Size(257, 32);
+            this.personalInfoTitle.TabIndex = 0;
+            this.personalInfoTitle.Text = "Personal Information";
             // 
             // AddRiderForm
             // 
@@ -653,16 +660,16 @@ namespace FoodHub
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
             this.contentPanel.ResumeLayout(false);
-            this.personalInfoPanel.ResumeLayout(false);
-            this.personalInfoPanel.PerformLayout();
-            this.contactInfoPanel.ResumeLayout(false);
-            this.contactInfoPanel.PerformLayout();
+            this.buttonPanel.ResumeLayout(false);
             this.dependentsPanel.ResumeLayout(false);
             this.dependentsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dependentsDataGridView)).EndInit();
             this.addDependentPanel.ResumeLayout(false);
             this.addDependentPanel.PerformLayout();
-            this.buttonPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dependentsDataGridView)).EndInit();
+            this.contactInfoPanel.ResumeLayout(false);
+            this.contactInfoPanel.PerformLayout();
+            this.personalInfoPanel.ResumeLayout(false);
+            this.personalInfoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

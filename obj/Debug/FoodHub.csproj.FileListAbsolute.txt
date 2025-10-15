@@ -15,8 +15,9 @@ C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.csproj.CoreCompileInp
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.csproj.Up2Date
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.exe
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.pdb
-C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.exe.config
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.BikeManagementForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AddBikeForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.RiderManagementForm.resources
 C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.AddRiderForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.EditBikeForm.resources
+C:\Users\User\Desktop\New folder\FoodHub\obj\Debug\FoodHub.EditRiderForm.resources

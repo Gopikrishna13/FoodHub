@@ -87,6 +87,12 @@
     <Compile Include="AddBikeForm.Designer.cs">
       <DependentUpon>AddBikeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditBikeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBikeForm.Designer.cs">
+      <DependentUpon>EditBikeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RiderManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,12 @@
     </Compile>
     <Compile Include="AddRiderForm.Designer.cs">
       <DependentUpon>AddRiderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRiderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRiderForm.Designer.cs">
+      <DependentUpon>EditRiderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BikeAssignment.cs" />
     <Compile Include="Models\BikeColor.cs" />
@@ -129,11 +141,17 @@
     <EmbeddedResource Include="AddBikeForm.resx">
       <DependentUpon>AddBikeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditBikeForm.resx">
+      <DependentUpon>EditBikeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RiderManagementForm.resx">
       <DependentUpon>RiderManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddRiderForm.resx">
       <DependentUpon>AddRiderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRiderForm.resx">
+      <DependentUpon>EditRiderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

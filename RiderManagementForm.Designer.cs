@@ -42,14 +42,10 @@ namespace FoodHub
             this.DependentsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.searchPanel = new System.Windows.Forms.Panel();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.searchLabel = new System.Windows.Forms.Label();
             this.addRiderButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ridersDataGridView)).BeginInit();
-            this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerPanel
@@ -78,6 +74,7 @@ namespace FoodHub
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "✕";
             this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // titleLabel
             // 
@@ -94,7 +91,6 @@ namespace FoodHub
             // 
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.contentPanel.Controls.Add(this.ridersDataGridView);
-            this.contentPanel.Controls.Add(this.searchPanel);
             this.contentPanel.Controls.Add(this.addRiderButton);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 70);
@@ -189,6 +185,7 @@ namespace FoodHub
             this.DependentsCount.MinimumWidth = 6;
             this.DependentsCount.Name = "DependentsCount";
             this.DependentsCount.ReadOnly = true;
+            this.DependentsCount.Width = 125;
             // 
             // UpdateColumn
             // 
@@ -198,6 +195,7 @@ namespace FoodHub
             this.UpdateColumn.ReadOnly = true;
             this.UpdateColumn.Text = "✏️ Edit";
             this.UpdateColumn.UseColumnTextForButtonValue = true;
+            this.UpdateColumn.Width = 125;
             // 
             // DeleteColumn
             // 
@@ -207,38 +205,7 @@ namespace FoodHub
             this.DeleteColumn.ReadOnly = true;
             this.DeleteColumn.Text = "🗑️ Delete";
             this.DeleteColumn.UseColumnTextForButtonValue = true;
-            // 
-            // searchPanel
-            // 
-            this.searchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchPanel.BackColor = System.Drawing.Color.White;
-            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchPanel.Controls.Add(this.searchTextBox);
-            this.searchPanel.Controls.Add(this.searchLabel);
-            this.searchPanel.Location = new System.Drawing.Point(850, 20);
-            this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(320, 45);
-            this.searchPanel.TabIndex = 1;
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox.Location = new System.Drawing.Point(80, 12);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(220, 25);
-            this.searchTextBox.TabIndex = 1;
-            // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.searchLabel.Location = new System.Drawing.Point(10, 12);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(93, 23);
-            this.searchLabel.TabIndex = 0;
-            this.searchLabel.Text = "🔍 Search:";
+            this.DeleteColumn.Width = 125;
             // 
             // addRiderButton
             // 
@@ -271,8 +238,6 @@ namespace FoodHub
             this.headerPanel.PerformLayout();
             this.contentPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ridersDataGridView)).EndInit();
-            this.searchPanel.ResumeLayout(false);
-            this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,9 +249,6 @@ namespace FoodHub
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Button addRiderButton;
-        private System.Windows.Forms.Panel searchPanel;
-        private System.Windows.Forms.TextBox searchTextBox;
-        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.DataGridView ridersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn RiderID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;

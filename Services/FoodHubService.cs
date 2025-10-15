@@ -3,6 +3,8 @@ using System.Linq;
 using System.Data.Entity;
 using FoodHub.Data;
 using FoodHub.Models;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 
 namespace FoodHub.Services
 {
@@ -58,6 +60,87 @@ namespace FoodHub.Services
                 Console.WriteLine($"Unexpected error adding customer: {ex.Message}");
                 Console.WriteLine($"Stack trace: {ex.StackTrace}");
                 return false;
+            }
+        }
+
+        public bool AddDependant(Dependent dependent)
+        {
+            using (var context = new FoodHubContext())
+            {
+                context.Dependents.Add(dependent);
+                int result = context.SaveChanges();
+                return result > 0;
+            }
+        }
+        public bool AddRider(Rider rider)
+        {
+            if (rider == null)
+            {
+
+                return false;
+            }
+
+
+
+            using (var context = new FoodHubContext())
+            {
+
+
+
+                var existingRider = context.Riders.FirstOrDefault(c => c.NIC == rider.NIC && c.UserName == rider.UserName);
+
+                if (existingRider != null)
+                {
+
+                    return false;
+                }
+
+
+         
+                context.Riders.Add(rider);
+
+
+                int result = context.SaveChanges();
+
+
+                return result > 0;
+            }
+        }
+        public bool AddBike(MotorBike motorBike)
+        {
+            if (motorBike == null)
+                return false;
+
+            using (var context = new FoodHubContext())
+            {
+                var existingBike = context.MotorBikes.FirstOrDefault(c => c.BikeRegNo == motorBike.BikeRegNo && c.EngineNumber== motorBike.EngineNumber);
+
+                if (existingBike != null)
+                {
+                    return false;
+                }
+
+                context.MotorBikes.Add(motorBike);
+                int result = context.SaveChanges();
+                return result > 0;
+
+            }
+
+        }
+
+        public bool AddBikeColor(BikeColor bikeColor)
+        {
+            if (bikeColor == null)
+                return false;
+
+            using (var context = new FoodHubContext())
+            {
+                
+
+                context.BikeColors.Add(bikeColor);
+                int result = context.SaveChanges();
+                return result > 0;
+
             }
         }
 
@@ -138,6 +221,82 @@ namespace FoodHub.Services
             }
         }
 
+        public List<MotorBike>GetAllBikes()
+        {
+            using (var context = new FoodHubContext())
+            {
+                return context.MotorBikes.ToList();
+            }
+        }
+
+        public void DeleteBikeColor(string RegNo)
+        {
+            using (var context = new FoodHubContext())
+            {
+                
+                var colors = context.BikeColors
+                                    .Where(c => c.BikeRegNo == RegNo)
+                                    .ToList();
+
+                if (colors.Any())
+                {
+                    context.BikeColors.RemoveRange(colors);
+                    context.SaveChanges();
+                }
+            }
+
+        }
+        public bool DeleteBike(string bikeRegNo)
+        {
+            using (var context = new FoodHubContext())
+            {
+               
+                var bike = context.MotorBikes.FirstOrDefault(b => b.BikeRegNo == bikeRegNo);
+                if (bike == null)
+                    return false;
+                DeleteBikeColor(bikeRegNo);
+                context.MotorBikes.Remove(bike); 
+                context.SaveChanges();
+                return true;
+            }
+        }
+
+        public MotorBike UpdateBike(MotorBike motorBike)
+        {
+            if (motorBike == null)
+                return null;
+            using (var context = new FoodHubContext())
+            {
+                var existingBike = context.MotorBikes
+                              .FirstOrDefault(b => b.BikeRegNo == motorBike.BikeRegNo);
+
+                if (existingBike != null)
+                {
+                    
+                    existingBike.Brand = motorBike.Brand;
+                    existingBike.Model = motorBike.Model;
+                    existingBike.EngineNumber = motorBike.EngineNumber;
+                    existingBike.RegisteredDate = motorBike.RegisteredDate;
+
+                    
+                }
+                
+
+                context.SaveChanges();
+                return motorBike;
+
+            }
+
+        }
+
+        public MotorBike GetSingleBike(string RegNo)
+        {
+            using (var context = new FoodHubContext())
+            {
+                var bike = context.MotorBikes.FirstOrDefault(b => b.BikeRegNo == RegNo);
+                return bike;
+            }
+        }
         /// <summary>
         /// Clear all customers (for testing purposes - use with caution!)
         /// </summary>
@@ -262,6 +421,113 @@ namespace FoodHub.Services
             {
                 Console.WriteLine($"Error getting riders: {ex.Message}");
                 return new System.Collections.Generic.List<Rider>();
+            }
+        }
+
+        public System.Collections.Generic.List<Rider> GetAllRiders()
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Riders.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting all riders: {ex.Message}");
+                return new System.Collections.Generic.List<Rider>();
+            }
+        }
+
+        public Rider GetSingleRider(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Riders.FirstOrDefault(r => r.RiderID == riderId);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider: {ex.Message}");
+                return null;
+            }
+        }
+
+        public bool UpdateRider(Rider rider)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var existingRider = context.Riders.FirstOrDefault(r => r.RiderID == rider.RiderID);
+                    if (existingRider != null)
+                    {
+                        existingRider.FirstName = rider.FirstName;
+                        existingRider.LastName = rider.LastName;
+                        existingRider.MiddleName = rider.MiddleName;
+                        existingRider.NIC = rider.NIC;
+                        existingRider.DateOfBirth = rider.DateOfBirth;
+                        existingRider.Age = rider.Age;
+                        existingRider.ContactNumber = rider.ContactNumber;
+                        existingRider.Address = rider.Address;
+                        existingRider.LicenseNumber = rider.LicenseNumber;
+                        existingRider.UserName = rider.UserName;
+                        existingRider.Password = rider.Password;
+                        
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating rider: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool DeleteRider(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    var rider = context.Riders.FirstOrDefault(r => r.RiderID == riderId);
+                    if (rider != null)
+                    {
+                        var dependents = context.Dependents.Where(d => d.RiderID == riderId).ToList();
+                        context.Dependents.RemoveRange(dependents);
+                        context.Riders.Remove(rider);
+                        int result = context.SaveChanges();
+                        return result > 0;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting rider: {ex.Message}");
+                return false;
+            }
+        }
+
+        public System.Collections.Generic.List<Dependent> GetRiderDependents(int riderId)
+        {
+            try
+            {
+                using (var context = new FoodHubContext())
+                {
+                    return context.Dependents.Where(d => d.RiderID == riderId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting rider dependents: {ex.Message}");
+                return new System.Collections.Generic.List<Dependent>();
             }
         }
 

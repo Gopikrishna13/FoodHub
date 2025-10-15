@@ -29,36 +29,36 @@ namespace FoodHub
         private void InitializeComponent()
         {
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.bikeInfoPanel = new System.Windows.Forms.Panel();
-            this.bikeInfoTitle = new System.Windows.Forms.Label();
-            this.regNoLabel = new System.Windows.Forms.Label();
-            this.regNoTextBox = new System.Windows.Forms.TextBox();
-            this.brandLabel = new System.Windows.Forms.Label();
-            this.brandTextBox = new System.Windows.Forms.TextBox();
-            this.modelLabel = new System.Windows.Forms.Label();
-            this.modelTextBox = new System.Windows.Forms.TextBox();
-            this.engineLabel = new System.Windows.Forms.Label();
-            this.engineTextBox = new System.Windows.Forms.TextBox();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.registeredDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.colorsPanel = new System.Windows.Forms.Panel();
-            this.colorsTitle = new System.Windows.Forms.Label();
-            this.colorsListBox = new System.Windows.Forms.ListBox();
-            this.colorLabel = new System.Windows.Forms.Label();
-            this.colorTextBox = new System.Windows.Forms.TextBox();
-            this.addColorButton = new System.Windows.Forms.Button();
-            this.removeColorButton = new System.Windows.Forms.Button();
             this.buttonPanel = new System.Windows.Forms.Panel();
-            this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.colorsPanel = new System.Windows.Forms.Panel();
+            this.removeColorButton = new System.Windows.Forms.Button();
+            this.addColorButton = new System.Windows.Forms.Button();
+            this.colorTextBox = new System.Windows.Forms.TextBox();
+            this.colorLabel = new System.Windows.Forms.Label();
+            this.colorsListBox = new System.Windows.Forms.ListBox();
+            this.colorsTitle = new System.Windows.Forms.Label();
+            this.bikeInfoPanel = new System.Windows.Forms.Panel();
+            this.registeredDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.engineTextBox = new System.Windows.Forms.TextBox();
+            this.engineLabel = new System.Windows.Forms.Label();
+            this.modelTextBox = new System.Windows.Forms.TextBox();
+            this.modelLabel = new System.Windows.Forms.Label();
+            this.brandTextBox = new System.Windows.Forms.TextBox();
+            this.brandLabel = new System.Windows.Forms.Label();
+            this.regNoTextBox = new System.Windows.Forms.TextBox();
+            this.regNoLabel = new System.Windows.Forms.Label();
+            this.bikeInfoTitle = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
-            this.bikeInfoPanel.SuspendLayout();
-            this.colorsPanel.SuspendLayout();
             this.buttonPanel.SuspendLayout();
+            this.colorsPanel.SuspendLayout();
+            this.bikeInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // headerPanel
@@ -71,17 +71,6 @@ namespace FoodHub
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(800, 70);
             this.headerPanel.TabIndex = 0;
-            // 
-            // titleLabel
-            // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(30, 20);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(180, 32);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Add New Bike";
             // 
             // closeButton
             // 
@@ -98,6 +87,18 @@ namespace FoodHub
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "✕";
             this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(30, 20);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(218, 41);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Add New Bike";
             // 
             // contentPanel
             // 
@@ -111,6 +112,138 @@ namespace FoodHub
             this.contentPanel.Padding = new System.Windows.Forms.Padding(30);
             this.contentPanel.Size = new System.Drawing.Size(800, 580);
             this.contentPanel.TabIndex = 1;
+            // 
+            // buttonPanel
+            // 
+            this.buttonPanel.Controls.Add(this.cancelButton);
+            this.buttonPanel.Controls.Add(this.saveButton);
+            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonPanel.Location = new System.Drawing.Point(30, 510);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(740, 40);
+            this.buttonPanel.TabIndex = 2;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(620, 0);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(120, 40);
+            this.cancelButton.TabIndex = 1;
+            this.cancelButton.Text = "✖️ Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.White;
+            this.saveButton.Location = new System.Drawing.Point(480, 0);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(120, 40);
+            this.saveButton.TabIndex = 0;
+            this.saveButton.Text = "💾 Save";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // colorsPanel
+            // 
+            this.colorsPanel.BackColor = System.Drawing.Color.White;
+            this.colorsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorsPanel.Controls.Add(this.removeColorButton);
+            this.colorsPanel.Controls.Add(this.addColorButton);
+            this.colorsPanel.Controls.Add(this.colorTextBox);
+            this.colorsPanel.Controls.Add(this.colorLabel);
+            this.colorsPanel.Controls.Add(this.colorsListBox);
+            this.colorsPanel.Controls.Add(this.colorsTitle);
+            this.colorsPanel.Location = new System.Drawing.Point(30, 330);
+            this.colorsPanel.Name = "colorsPanel";
+            this.colorsPanel.Size = new System.Drawing.Size(740, 160);
+            this.colorsPanel.TabIndex = 1;
+            // 
+            // removeColorButton
+            // 
+            this.removeColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.removeColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeColorButton.FlatAppearance.BorderSize = 0;
+            this.removeColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeColorButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeColorButton.ForeColor = System.Drawing.Color.White;
+            this.removeColorButton.Location = new System.Drawing.Point(280, 114);
+            this.removeColorButton.Name = "removeColorButton";
+            this.removeColorButton.Size = new System.Drawing.Size(100, 25);
+            this.removeColorButton.TabIndex = 5;
+            this.removeColorButton.Text = "🗑️ Remove";
+            this.removeColorButton.UseVisualStyleBackColor = false;
+            this.removeColorButton.Click += new System.EventHandler(this.removeColorButton_Click);
+            // 
+            // addColorButton
+            // 
+            this.addColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.addColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addColorButton.FlatAppearance.BorderSize = 0;
+            this.addColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addColorButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addColorButton.ForeColor = System.Drawing.Color.White;
+            this.addColorButton.Location = new System.Drawing.Point(450, 78);
+            this.addColorButton.Name = "addColorButton";
+            this.addColorButton.Size = new System.Drawing.Size(80, 25);
+            this.addColorButton.TabIndex = 4;
+            this.addColorButton.Text = "➕ Add";
+            this.addColorButton.UseVisualStyleBackColor = false;
+            this.addColorButton.Click += new System.EventHandler(this.addColorButton_Click);
+            // 
+            // colorTextBox
+            // 
+            this.colorTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorTextBox.Location = new System.Drawing.Point(280, 78);
+            this.colorTextBox.MaxLength = 30;
+            this.colorTextBox.Name = "colorTextBox";
+            this.colorTextBox.Size = new System.Drawing.Size(150, 30);
+            this.colorTextBox.TabIndex = 3;
+            // 
+            // colorLabel
+            // 
+            this.colorLabel.AutoSize = true;
+            this.colorLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.colorLabel.Location = new System.Drawing.Point(280, 50);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(101, 25);
+            this.colorLabel.TabIndex = 2;
+            this.colorLabel.Text = "Add Color:";
+            // 
+            // colorsListBox
+            // 
+            this.colorsListBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorsListBox.FormattingEnabled = true;
+            this.colorsListBox.ItemHeight = 23;
+            this.colorsListBox.Location = new System.Drawing.Point(30, 50);
+            this.colorsListBox.Name = "colorsListBox";
+            this.colorsListBox.Size = new System.Drawing.Size(200, 73);
+            this.colorsListBox.TabIndex = 1;
+            // 
+            // colorsTitle
+            // 
+            this.colorsTitle.AutoSize = true;
+            this.colorsTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.colorsTitle.Location = new System.Drawing.Point(20, 15);
+            this.colorsTitle.Name = "colorsTitle";
+            this.colorsTitle.Size = new System.Drawing.Size(142, 32);
+            this.colorsTitle.TabIndex = 0;
+            this.colorsTitle.Text = "Bike Colors";
             // 
             // bikeInfoPanel
             // 
@@ -132,96 +265,14 @@ namespace FoodHub
             this.bikeInfoPanel.Size = new System.Drawing.Size(740, 280);
             this.bikeInfoPanel.TabIndex = 0;
             // 
-            // bikeInfoTitle
+            // registeredDatePicker
             // 
-            this.bikeInfoTitle.AutoSize = true;
-            this.bikeInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bikeInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.bikeInfoTitle.Location = new System.Drawing.Point(20, 15);
-            this.bikeInfoTitle.Name = "bikeInfoTitle";
-            this.bikeInfoTitle.Size = new System.Drawing.Size(180, 25);
-            this.bikeInfoTitle.TabIndex = 0;
-            this.bikeInfoTitle.Text = "Bike Information";
-            // 
-            // regNoLabel
-            // 
-            this.regNoLabel.AutoSize = true;
-            this.regNoLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regNoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.regNoLabel.Location = new System.Drawing.Point(30, 60);
-            this.regNoLabel.Name = "regNoLabel";
-            this.regNoLabel.Size = new System.Drawing.Size(125, 20);
-            this.regNoLabel.TabIndex = 1;
-            this.regNoLabel.Text = "Registration No *";
-            // 
-            // regNoTextBox
-            // 
-            this.regNoTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regNoTextBox.Location = new System.Drawing.Point(200, 58);
-            this.regNoTextBox.MaxLength = 20;
-            this.regNoTextBox.Name = "regNoTextBox";
-            this.regNoTextBox.Size = new System.Drawing.Size(200, 25);
-            this.regNoTextBox.TabIndex = 2;
-            // 
-            // brandLabel
-            // 
-            this.brandLabel.AutoSize = true;
-            this.brandLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brandLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.brandLabel.Location = new System.Drawing.Point(30, 110);
-            this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(58, 20);
-            this.brandLabel.TabIndex = 3;
-            this.brandLabel.Text = "Brand *";
-            // 
-            // brandTextBox
-            // 
-            this.brandTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brandTextBox.Location = new System.Drawing.Point(200, 108);
-            this.brandTextBox.MaxLength = 50;
-            this.brandTextBox.Name = "brandTextBox";
-            this.brandTextBox.Size = new System.Drawing.Size(200, 25);
-            this.brandTextBox.TabIndex = 4;
-            // 
-            // modelLabel
-            // 
-            this.modelLabel.AutoSize = true;
-            this.modelLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modelLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.modelLabel.Location = new System.Drawing.Point(30, 160);
-            this.modelLabel.Name = "modelLabel";
-            this.modelLabel.Size = new System.Drawing.Size(60, 20);
-            this.modelLabel.TabIndex = 5;
-            this.modelLabel.Text = "Model *";
-            // 
-            // modelTextBox
-            // 
-            this.modelTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modelTextBox.Location = new System.Drawing.Point(200, 158);
-            this.modelTextBox.MaxLength = 50;
-            this.modelTextBox.Name = "modelTextBox";
-            this.modelTextBox.Size = new System.Drawing.Size(200, 25);
-            this.modelTextBox.TabIndex = 6;
-            // 
-            // engineLabel
-            // 
-            this.engineLabel.AutoSize = true;
-            this.engineLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.engineLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.engineLabel.Location = new System.Drawing.Point(430, 60);
-            this.engineLabel.Name = "engineLabel";
-            this.engineLabel.Size = new System.Drawing.Size(125, 20);
-            this.engineLabel.TabIndex = 7;
-            this.engineLabel.Text = "Engine Number *";
-            // 
-            // engineTextBox
-            // 
-            this.engineTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.engineTextBox.Location = new System.Drawing.Point(430, 88);
-            this.engineTextBox.MaxLength = 50;
-            this.engineTextBox.Name = "engineTextBox";
-            this.engineTextBox.Size = new System.Drawing.Size(200, 25);
-            this.engineTextBox.TabIndex = 8;
+            this.registeredDatePicker.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registeredDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.registeredDatePicker.Location = new System.Drawing.Point(430, 168);
+            this.registeredDatePicker.Name = "registeredDatePicker";
+            this.registeredDatePicker.Size = new System.Drawing.Size(200, 30);
+            this.registeredDatePicker.TabIndex = 10;
             // 
             // dateLabel
             // 
@@ -230,146 +281,100 @@ namespace FoodHub
             this.dateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.dateLabel.Location = new System.Drawing.Point(430, 140);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(130, 20);
+            this.dateLabel.Size = new System.Drawing.Size(157, 25);
             this.dateLabel.TabIndex = 9;
             this.dateLabel.Text = "Registered Date *";
             // 
-            // registeredDatePicker
+            // engineTextBox
             // 
-            this.registeredDatePicker.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registeredDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.registeredDatePicker.Location = new System.Drawing.Point(430, 168);
-            this.registeredDatePicker.Name = "registeredDatePicker";
-            this.registeredDatePicker.Size = new System.Drawing.Size(200, 25);
-            this.registeredDatePicker.TabIndex = 10;
+            this.engineTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engineTextBox.Location = new System.Drawing.Point(430, 88);
+            this.engineTextBox.MaxLength = 50;
+            this.engineTextBox.Name = "engineTextBox";
+            this.engineTextBox.Size = new System.Drawing.Size(200, 30);
+            this.engineTextBox.TabIndex = 8;
             // 
-            // colorsPanel
+            // engineLabel
             // 
-            this.colorsPanel.BackColor = System.Drawing.Color.White;
-            this.colorsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.colorsPanel.Controls.Add(this.removeColorButton);
-            this.colorsPanel.Controls.Add(this.addColorButton);
-            this.colorsPanel.Controls.Add(this.colorTextBox);
-            this.colorsPanel.Controls.Add(this.colorLabel);
-            this.colorsPanel.Controls.Add(this.colorsListBox);
-            this.colorsPanel.Controls.Add(this.colorsTitle);
-            this.colorsPanel.Location = new System.Drawing.Point(30, 330);
-            this.colorsPanel.Name = "colorsPanel";
-            this.colorsPanel.Size = new System.Drawing.Size(740, 160);
-            this.colorsPanel.TabIndex = 1;
+            this.engineLabel.AutoSize = true;
+            this.engineLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engineLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.engineLabel.Location = new System.Drawing.Point(430, 60);
+            this.engineLabel.Name = "engineLabel";
+            this.engineLabel.Size = new System.Drawing.Size(157, 25);
+            this.engineLabel.TabIndex = 7;
+            this.engineLabel.Text = "Engine Number *";
             // 
-            // colorsTitle
+            // modelTextBox
             // 
-            this.colorsTitle.AutoSize = true;
-            this.colorsTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.colorsTitle.Location = new System.Drawing.Point(20, 15);
-            this.colorsTitle.Name = "colorsTitle";
-            this.colorsTitle.Size = new System.Drawing.Size(115, 25);
-            this.colorsTitle.TabIndex = 0;
-            this.colorsTitle.Text = "Bike Colors";
+            this.modelTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modelTextBox.Location = new System.Drawing.Point(200, 158);
+            this.modelTextBox.MaxLength = 50;
+            this.modelTextBox.Name = "modelTextBox";
+            this.modelTextBox.Size = new System.Drawing.Size(200, 30);
+            this.modelTextBox.TabIndex = 6;
             // 
-            // colorsListBox
+            // modelLabel
             // 
-            this.colorsListBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorsListBox.FormattingEnabled = true;
-            this.colorsListBox.ItemHeight = 17;
-            this.colorsListBox.Location = new System.Drawing.Point(30, 50);
-            this.colorsListBox.Name = "colorsListBox";
-            this.colorsListBox.Size = new System.Drawing.Size(200, 89);
-            this.colorsListBox.TabIndex = 1;
+            this.modelLabel.AutoSize = true;
+            this.modelLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modelLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.modelLabel.Location = new System.Drawing.Point(30, 160);
+            this.modelLabel.Name = "modelLabel";
+            this.modelLabel.Size = new System.Drawing.Size(79, 25);
+            this.modelLabel.TabIndex = 5;
+            this.modelLabel.Text = "Model *";
             // 
-            // colorLabel
+            // brandTextBox
             // 
-            this.colorLabel.AutoSize = true;
-            this.colorLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.colorLabel.Location = new System.Drawing.Point(280, 50);
-            this.colorLabel.Name = "colorLabel";
-            this.colorLabel.Size = new System.Drawing.Size(80, 20);
-            this.colorLabel.TabIndex = 2;
-            this.colorLabel.Text = "Add Color:";
+            this.brandTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brandTextBox.Location = new System.Drawing.Point(200, 108);
+            this.brandTextBox.MaxLength = 50;
+            this.brandTextBox.Name = "brandTextBox";
+            this.brandTextBox.Size = new System.Drawing.Size(200, 30);
+            this.brandTextBox.TabIndex = 4;
             // 
-            // colorTextBox
+            // brandLabel
             // 
-            this.colorTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colorTextBox.Location = new System.Drawing.Point(280, 78);
-            this.colorTextBox.MaxLength = 30;
-            this.colorTextBox.Name = "colorTextBox";
-            this.colorTextBox.Size = new System.Drawing.Size(150, 25);
-            this.colorTextBox.TabIndex = 3;
+            this.brandLabel.AutoSize = true;
+            this.brandLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brandLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.brandLabel.Location = new System.Drawing.Point(30, 110);
+            this.brandLabel.Name = "brandLabel";
+            this.brandLabel.Size = new System.Drawing.Size(75, 25);
+            this.brandLabel.TabIndex = 3;
+            this.brandLabel.Text = "Brand *";
             // 
-            // addColorButton
+            // regNoTextBox
             // 
-            this.addColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.addColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addColorButton.FlatAppearance.BorderSize = 0;
-            this.addColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addColorButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addColorButton.ForeColor = System.Drawing.Color.White;
-            this.addColorButton.Location = new System.Drawing.Point(450, 78);
-            this.addColorButton.Name = "addColorButton";
-            this.addColorButton.Size = new System.Drawing.Size(80, 25);
-            this.addColorButton.TabIndex = 4;
-            this.addColorButton.Text = "➕ Add";
-            this.addColorButton.UseVisualStyleBackColor = false;
+            this.regNoTextBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regNoTextBox.Location = new System.Drawing.Point(200, 58);
+            this.regNoTextBox.MaxLength = 20;
+            this.regNoTextBox.Name = "regNoTextBox";
+            this.regNoTextBox.Size = new System.Drawing.Size(200, 30);
+            this.regNoTextBox.TabIndex = 2;
             // 
-            // removeColorButton
+            // regNoLabel
             // 
-            this.removeColorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.removeColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.removeColorButton.FlatAppearance.BorderSize = 0;
-            this.removeColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeColorButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeColorButton.ForeColor = System.Drawing.Color.White;
-            this.removeColorButton.Location = new System.Drawing.Point(280, 114);
-            this.removeColorButton.Name = "removeColorButton";
-            this.removeColorButton.Size = new System.Drawing.Size(100, 25);
-            this.removeColorButton.TabIndex = 5;
-            this.removeColorButton.Text = "🗑️ Remove";
-            this.removeColorButton.UseVisualStyleBackColor = false;
+            this.regNoLabel.AutoSize = true;
+            this.regNoLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regNoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.regNoLabel.Location = new System.Drawing.Point(30, 60);
+            this.regNoLabel.Name = "regNoLabel";
+            this.regNoLabel.Size = new System.Drawing.Size(155, 25);
+            this.regNoLabel.TabIndex = 1;
+            this.regNoLabel.Text = "Registration No *";
             // 
-            // buttonPanel
+            // bikeInfoTitle
             // 
-            this.buttonPanel.Controls.Add(this.cancelButton);
-            this.buttonPanel.Controls.Add(this.saveButton);
-            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonPanel.Location = new System.Drawing.Point(30, 510);
-            this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(740, 40);
-            this.buttonPanel.TabIndex = 2;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(480, 0);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(120, 40);
-            this.saveButton.TabIndex = 0;
-            this.saveButton.Text = "💾 Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(620, 0);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(120, 40);
-            this.cancelButton.TabIndex = 1;
-            this.cancelButton.Text = "✖️ Cancel";
-            this.cancelButton.UseVisualStyleBackColor = false;
+            this.bikeInfoTitle.AutoSize = true;
+            this.bikeInfoTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bikeInfoTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.bikeInfoTitle.Location = new System.Drawing.Point(20, 15);
+            this.bikeInfoTitle.Name = "bikeInfoTitle";
+            this.bikeInfoTitle.Size = new System.Drawing.Size(207, 32);
+            this.bikeInfoTitle.TabIndex = 0;
+            this.bikeInfoTitle.Text = "Bike Information";
             // 
             // AddBikeForm
             // 
@@ -385,11 +390,11 @@ namespace FoodHub
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
             this.contentPanel.ResumeLayout(false);
-            this.bikeInfoPanel.ResumeLayout(false);
-            this.bikeInfoPanel.PerformLayout();
+            this.buttonPanel.ResumeLayout(false);
             this.colorsPanel.ResumeLayout(false);
             this.colorsPanel.PerformLayout();
-            this.buttonPanel.ResumeLayout(false);
+            this.bikeInfoPanel.ResumeLayout(false);
+            this.bikeInfoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
